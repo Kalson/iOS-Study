@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>48A1E59F-6ACA-4252-8281-763F1EE27141</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PhotoBombers</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>199D975D-8DFC-4704-8A78-DDA9F840C62A</key>
+		<string>https://github.com/Kalson/iOS-S.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>PhotoBombers/PhotoBombers.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>199D975D-8DFC-4704-8A78-DDA9F840C62A</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Kalson/iOS-S.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>199D975D-8DFC-4704-8A78-DDA9F840C62A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>199D975D-8DFC-4704-8A78-DDA9F840C62A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS-S</string>
+		</dict>
+	</array>
+</dict>
+</plist>

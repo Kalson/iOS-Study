@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>181F31C8-7045-4108-B57E-54ADB3ACBC6F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Core Graphics</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>83514B0F-3DC7-4070-8FE3-AAC0530DA240</key>
+		<string>https://github.com/Kalson/iOS-S.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Core Graphics/Core Graphics.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>83514B0F-3DC7-4070-8FE3-AAC0530DA240</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Kalson/iOS-S.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>83514B0F-3DC7-4070-8FE3-AAC0530DA240</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>83514B0F-3DC7-4070-8FE3-AAC0530DA240</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS-S</string>
+		</dict>
+	</array>
+</dict>
+</plist>
