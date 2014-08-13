@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>97935E1F-E1E0-4261-9A0F-82664A890D95</string>
+	<string>23E416E2-612D-40DF-8ADC-9E0C2BCEFB0F</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Adding Groups</string>
+	<string>Login Page</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>737C9221-5CF9-448B-806C-CAC9307A52AB</key>
+		<key>6DB9FD8F-E240-4E0D-BD92-FB56308D5880</key>
 		<string>https://github.com/Kalson/iOS-Study.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Adding Groups/Adding Groups.xcodeproj/project.xcworkspace</string>
+	<string>Login Page/Login Page.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>737C9221-5CF9-448B-806C-CAC9307A52AB</key>
+		<key>6DB9FD8F-E240-4E0D-BD92-FB56308D5880</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>737C9221-5CF9-448B-806C-CAC9307A52AB</string>
+	<string>6DB9FD8F-E240-4E0D-BD92-FB56308D5880</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>737C9221-5CF9-448B-806C-CAC9307A52AB</string>
+			<string>6DB9FD8F-E240-4E0D-BD92-FB56308D5880</string>
 			<key>IDESourceControlWCCName</key>
 			<string>iOS-Study</string>
 		</dict>

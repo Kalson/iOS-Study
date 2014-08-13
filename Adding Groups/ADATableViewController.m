@@ -58,7 +58,7 @@
     [self.tableView reloadData];
   
     
-//    [self saveGroupData];
+    [self saveGroupData];
 }
 
 - (void)addNewGroup
