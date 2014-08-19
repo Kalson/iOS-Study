@@ -1,19 +1,18 @@
 //
-//  LPAVC.m
-//  Login Page
+//  TASRedController.m
+//  tabandScroll
 //
-//  Created by KaL on 8/13/14.
+//  Created by KaL on 8/17/14.
 //  Copyright (c) 2014 Kalson Kalu. All rights reserved.
 //
 
-#import "LPAVC.h"
-#import "LoginVC.h"
+#import "TASRedController.h"
 
-@interface LPAVC ()
+@interface TASRedController ()
 
 @end
 
-@implementation LPAVC
+@implementation TASRedController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -21,6 +20,9 @@
     if (self) {
         // Custom initialization
         
+        self.title = @"red";
+        self.view.backgroundColor = [UIColor redColor];
+
     }
     return self;
 }

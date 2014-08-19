@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		261C7E21199C641B00CE104C /* LPAVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 261C7E20199C641B00CE104C /* LPAVC.m */; };
 		264185F5199ACF8C007CB5D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264185F4199ACF8C007CB5D4 /* Foundation.framework */; };
 		264185F7199ACF8C007CB5D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264185F6199ACF8C007CB5D4 /* CoreGraphics.framework */; };
 		264185F9199ACF8C007CB5D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264185F8199ACF8C007CB5D4 /* UIKit.framework */; };
@@ -19,7 +20,7 @@
 		26418610199ACF8C007CB5D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264185F8199ACF8C007CB5D4 /* UIKit.framework */; };
 		26418618199ACF8D007CB5D4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 26418616199ACF8D007CB5D4 /* InfoPlist.strings */; };
 		2641861A199ACF8D007CB5D4 /* Login_PageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 26418619199ACF8D007CB5D4 /* Login_PageTests.m */; };
-		26418625199AD01F007CB5D4 /* LPAVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 26418624199AD01F007CB5D4 /* LPAVC.m */; };
+		26418625199AD01F007CB5D4 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 26418624199AD01F007CB5D4 /* LoginVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		261C7E1F199C641B00CE104C /* LPAVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPAVC.h; sourceTree = "<group>"; };
+		261C7E20199C641B00CE104C /* LPAVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPAVC.m; sourceTree = "<group>"; };
 		264185F1199ACF8C007CB5D4 /* Login Page.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Login Page.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		264185F4199ACF8C007CB5D4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		264185F6199ACF8C007CB5D4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -49,8 +52,8 @@
 		26418615199ACF8D007CB5D4 /* Login PageTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Login PageTests-Info.plist"; sourceTree = "<group>"; };
 		26418617199ACF8D007CB5D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		26418619199ACF8D007CB5D4 /* Login_PageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Login_PageTests.m; sourceTree = "<group>"; };
-		26418623199AD01F007CB5D4 /* LPAVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPAVC.h; sourceTree = "<group>"; };
-		26418624199AD01F007CB5D4 /* LPAVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPAVC.m; sourceTree = "<group>"; };
+		26418623199AD01F007CB5D4 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		26418624199AD01F007CB5D4 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,8 +154,10 @@
 		26418626199AD025007CB5D4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				26418623199AD01F007CB5D4 /* LPAVC.h */,
-				26418624199AD01F007CB5D4 /* LPAVC.m */,
+				26418623199AD01F007CB5D4 /* LoginVC.h */,
+				26418624199AD01F007CB5D4 /* LoginVC.m */,
+				261C7E1F199C641B00CE104C /* LPAVC.h */,
+				261C7E20199C641B00CE104C /* LPAVC.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -253,7 +258,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26418625199AD01F007CB5D4 /* LPAVC.m in Sources */,
+				261C7E21199C641B00CE104C /* LPAVC.m in Sources */,
+				26418625199AD01F007CB5D4 /* LoginVC.m in Sources */,
 				26418605199ACF8C007CB5D4 /* LPAAppDelegate.m in Sources */,
 				26418601199ACF8C007CB5D4 /* main.m in Sources */,
 			);
@@ -452,6 +458,7 @@
 				2641861F199ACF8D007CB5D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		26418620199ACF8D007CB5D4 /* Build configuration list for PBXNativeTarget "Login PageTests" */ = {
 			isa = XCConfigurationList;
@@ -460,6 +467,7 @@
 				26418622199ACF8D007CB5D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

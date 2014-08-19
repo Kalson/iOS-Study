@@ -1,22 +1,23 @@
 //
-//  LPAAppDelegate.m
-//  Login Page
+//  UDAppDelegate.m
+//  UIKitDynamics
 //
-//  Created by KaL on 8/12/14.
+//  Created by KaL on 8/17/14.
 //  Copyright (c) 2014 Kalson Kalu. All rights reserved.
 //
 
-#import "LPAAppDelegate.h"
-#import "LoginVC.h"
+#import "UDAppDelegate.h"
+#import "UDViewController.h"
 
-@implementation LPAAppDelegate
+@implementation UDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    self.window.rootViewController = [[LoginVC alloc]init];
+    
+    self.window.rootViewController = [[UDViewController alloc]init];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

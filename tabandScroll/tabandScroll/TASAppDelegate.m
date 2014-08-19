@@ -1,22 +1,32 @@
 //
-//  LPAAppDelegate.m
-//  Login Page
+//  TASAppDelegate.m
+//  tabandScroll
 //
-//  Created by KaL on 8/12/14.
+//  Created by KaL on 8/17/14.
 //  Copyright (c) 2014 Kalson Kalu. All rights reserved.
 //
 
-#import "LPAAppDelegate.h"
-#import "LoginVC.h"
+#import "TASAppDelegate.h"
+#import "TASBlueController.h"
+#import "TASRedController.h"
 
-@implementation LPAAppDelegate
+@implementation TASAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    self.window.rootViewController = [[LoginVC alloc]init];
+   
+    
+    TASBlueController *blueVC = [[TASBlueController alloc]init];
+    TASRedController *redVC = [[TASRedController alloc]init];
+
+    
+    UITabBarController *tabBarC = [[UITabBarController alloc]init];
+    [tabBarC setViewControllers:@[blueVC,redVC]];
+    
+    self.window.rootViewController = tabBarC;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
