@@ -14,7 +14,6 @@
 
 @implementation NAItemInfoVC
 {
-//    NSMutableDictionary *itemInfo;
     UITextView *textView;
     UIBarButtonItem *done;
 }
@@ -24,9 +23,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        
-        self.navigationController.navigationBar.barTintColor = [UIColor redColor];
-        
+                
         done = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButton)];
         self.navigationItem.rightBarButtonItem = done;
         
@@ -59,6 +56,12 @@
 {
     [textView resignFirstResponder];
     self.navigationItem.rightBarButtonItem = nil;
+    
+    [self.itemInfo addObject:[@[
+                                [@{}mutableCopy]
+                                ]mutableCopy]];
+    
+//    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
