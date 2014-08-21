@@ -20,8 +20,6 @@
     if (self) {
         // Custom initialization
         
-        self.VCtableView.delegate = self;
-        self.VCtableView.dataSource =self;
         
         
     }
@@ -33,6 +31,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    /// create new tableview
+    
+    // add tableview to subview
+    
+    self.VCtableView.delegate = self;
+    self.VCtableView.dataSource =self;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -43,6 +47,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
+    cell.textLabel.text = @"hello";
+    
     return cell;
 }
 

@@ -58,7 +58,11 @@
     self.navigationItem.rightBarButtonItem = nil;
     
     [self.itemInfo addObject:[@[
-                                [@{}mutableCopy]
+                                [@{
+                                   
+                                   @"itemInfo" :textView.text
+                                   
+                                   }mutableCopy]
                                 ]mutableCopy]];
     
 //    [self.navigationController popToRootViewControllerAnimated:YES];

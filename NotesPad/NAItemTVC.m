@@ -107,9 +107,9 @@
     [data writeToFile:[self itemFilePath] atomically:YES];
 }
 
-- (void)loadItemData
+- (NSArray *)loadItemData
 {
-    [NSKeyedUnarchiver unarchiveObjectWithFile:[self itemFilePath]];
+    return [NSKeyedUnarchiver unarchiveObjectWithFile:[self itemFilePath]];
 }
 
 - (NSString *)itemFilePath
