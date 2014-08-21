@@ -7,7 +7,7 @@
 //
 
 #import "NAAppDelegate.h"
-#import "NATableViewController.h"
+#import "NAItemTVC.h"
 
 @implementation NAAppDelegate
 
@@ -18,7 +18,7 @@
     
 
     
-    UINavigationController *navVC = [[UINavigationController alloc]initWithRootViewController:[[NATableViewController alloc]init]];
+    UINavigationController *navVC = [[UINavigationController alloc]initWithRootViewController:[[NAItemTVC alloc]init]];
     self.window.rootViewController = navVC;
     
     navVC.navigationBar.tintColor = [UIColor orangeColor];

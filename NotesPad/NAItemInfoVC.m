@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 Kalson Kalu. All rights reserved.
 //
 
-#import "NAViewController.h"
+#import "NAItemInfoVC.h"
 
-@interface NAViewController ()<UITextViewDelegate>
+@interface NAItemInfoVC ()<UITextViewDelegate>
 
 @end
 
-@implementation NAViewController
+@implementation NAItemInfoVC
 {
-    NSMutableDictionary *itemInfo;
+//    NSMutableDictionary *itemInfo;
     UITextView *textView;
     UIBarButtonItem *done;
 }
@@ -49,17 +49,21 @@
 
 }
 
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//    
+//    self.navigationItem.rightBarButtonItem = done;
+//}
+
 - (void)doneButton
 {
     [textView resignFirstResponder];
-    done.title = @"";
-    
-    // ask jo for a better way to remove the button
-    
+    self.navigationItem.rightBarButtonItem = nil;
 }
+
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
-//    done.title = @"Done";
+     self.navigationItem.rightBarButtonItem = done;
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,25 +72,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)saveItemData
-{
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:itemInfo];
-    [data writeToFile:[self itemFilePath] atomically:YES];
-}
-
-- (void)loadItemData
-{
-    [NSKeyedUnarchiver unarchiveObjectWithFile:[self itemFilePath]];
-}
-
-- (NSString *)itemFilePath
-{
-    NSArray *docoumentDictories = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
-    NSString *path = docoumentDictories[0];
-    
-    return [path stringByAppendingString:@"items.data"];
-    
-    
-}
 
 @end

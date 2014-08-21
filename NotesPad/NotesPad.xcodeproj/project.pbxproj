@@ -19,8 +19,8 @@
 		269FF43D19A42ABC000FBD3B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 269FF42519A42ABC000FBD3B /* UIKit.framework */; };
 		269FF44519A42ABC000FBD3B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 269FF44319A42ABC000FBD3B /* InfoPlist.strings */; };
 		269FF44719A42ABC000FBD3B /* NotesPadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 269FF44619A42ABC000FBD3B /* NotesPadTests.m */; };
-		269FF45219A42AD8000FBD3B /* NATableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 269FF45119A42AD8000FBD3B /* NATableViewController.m */; };
-		269FF45519A42F9C000FBD3B /* NAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 269FF45419A42F9C000FBD3B /* NAViewController.m */; };
+		269FF45219A42AD8000FBD3B /* NAItemTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 269FF45119A42AD8000FBD3B /* NAItemTVC.m */; };
+		269FF45519A42F9C000FBD3B /* NAItemInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 269FF45419A42F9C000FBD3B /* NAItemInfoVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,10 +50,10 @@
 		269FF44219A42ABC000FBD3B /* NotesPadTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NotesPadTests-Info.plist"; sourceTree = "<group>"; };
 		269FF44419A42ABC000FBD3B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		269FF44619A42ABC000FBD3B /* NotesPadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotesPadTests.m; sourceTree = "<group>"; };
-		269FF45019A42AD8000FBD3B /* NATableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NATableViewController.h; sourceTree = "<group>"; };
-		269FF45119A42AD8000FBD3B /* NATableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NATableViewController.m; sourceTree = "<group>"; };
-		269FF45319A42F9C000FBD3B /* NAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAViewController.h; sourceTree = "<group>"; };
-		269FF45419A42F9C000FBD3B /* NAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAViewController.m; sourceTree = "<group>"; };
+		269FF45019A42AD8000FBD3B /* NAItemTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAItemTVC.h; sourceTree = "<group>"; };
+		269FF45119A42AD8000FBD3B /* NAItemTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAItemTVC.m; sourceTree = "<group>"; };
+		269FF45319A42F9C000FBD3B /* NAItemInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAItemInfoVC.h; sourceTree = "<group>"; };
+		269FF45419A42F9C000FBD3B /* NAItemInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAItemInfoVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,10 +154,10 @@
 		269FF45619A42FB3000FBD3B /* Ccontrollers */ = {
 			isa = PBXGroup;
 			children = (
-				269FF45319A42F9C000FBD3B /* NAViewController.h */,
-				269FF45419A42F9C000FBD3B /* NAViewController.m */,
-				269FF45019A42AD8000FBD3B /* NATableViewController.h */,
-				269FF45119A42AD8000FBD3B /* NATableViewController.m */,
+				269FF45019A42AD8000FBD3B /* NAItemTVC.h */,
+				269FF45119A42AD8000FBD3B /* NAItemTVC.m */,
+				269FF45319A42F9C000FBD3B /* NAItemInfoVC.h */,
+				269FF45419A42F9C000FBD3B /* NAItemInfoVC.m */,
 			);
 			name = Ccontrollers;
 			sourceTree = "<group>";
@@ -260,8 +260,8 @@
 			files = (
 				269FF42E19A42ABC000FBD3B /* main.m in Sources */,
 				269FF43219A42ABC000FBD3B /* NAAppDelegate.m in Sources */,
-				269FF45219A42AD8000FBD3B /* NATableViewController.m in Sources */,
-				269FF45519A42F9C000FBD3B /* NAViewController.m in Sources */,
+				269FF45219A42AD8000FBD3B /* NAItemTVC.m in Sources */,
+				269FF45519A42F9C000FBD3B /* NAItemInfoVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +458,7 @@
 				269FF44C19A42ABC000FBD3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		269FF44D19A42ABC000FBD3B /* Build configuration list for PBXNativeTarget "NotesPadTests" */ = {
 			isa = XCConfigurationList;
@@ -466,6 +467,7 @@
 				269FF44F19A42ABC000FBD3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

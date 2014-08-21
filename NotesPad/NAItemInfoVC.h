@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NAViewController : UIViewController
+@interface NAItemInfoVC : UIViewController
+
+@property (nonatomic) NSMutableArray *itemInfo;
+// needed to pass back to the itemTVC
 
 @end

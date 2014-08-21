@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NATableViewController : UITableViewController
+@interface NAItemTVC : UITableViewController
 
 @end

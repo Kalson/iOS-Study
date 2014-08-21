@@ -6,17 +6,19 @@
 //  Copyright (c) 2014 Kalson Kalu. All rights reserved.
 //
 
-#import "NATableViewController.h"
-#import "NAViewController.h"
+#import "NAItemTVC.h"
+#import "NAItemInfoVC.h"
 
-@interface NATableViewController ()
+@interface NAItemTVC ()
 
 @end
 
-@implementation NATableViewController
+@implementation NAItemTVC
 {
-    NAViewController *navVC;
+    NAItemInfoVC *ItemInfoVC;
+//    NSMutableDictionary *items;
     NSMutableArray *items;
+
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -27,8 +29,10 @@
         
         [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
         
-        navVC = [[NAViewController alloc]init];
+        ItemInfoVC = [[NAItemInfoVC alloc]init];
         items = [@[]mutableCopy];
+        
+        items = ([self loadItemData]) ? [self loadItemData]:[@[] mutableCopy];
     }
     return self;
 }
@@ -49,13 +53,20 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self saveItemData];
+    [self.tableView reloadData];
+}
+
 - (void)itemButton
 {
-    [self.navigationController pushViewController:navVC animated:YES];
-    navVC.view.backgroundColor = [UIColor whiteColor];
+    [self.navigationController pushViewController:ItemInfoVC animated:YES];
+    ItemInfoVC.view.backgroundColor = [UIColor whiteColor];
     
-    [items addObject:[@{}mutableCopy]];
-    
+    ItemInfoVC.itemInfo = items;;
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,7 +87,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 0;
+    
+    // why alloc/init again?
+//    NSMutableArray *item = items[@"itemInfo"];
+    return items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -84,8 +98,16 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     // Configure the cell...
+    cell.textLabel.text = items[indexPath.row][@"name"];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    ItemInfoVC.itemInfo = items[indexPath.row];
+    
 }
 
 /*
@@ -97,7 +119,7 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -108,7 +130,7 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -125,16 +147,23 @@
     return YES;
 }
 */
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)saveItemData
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:items];
+    [data writeToFile:[self itemFilePath] atomically:YES];
 }
-*/
+
+- (void)loadItemData
+{
+    [NSKeyedUnarchiver unarchiveObjectWithFile:[self itemFilePath]];
+}
+
+- (NSString *)itemFilePath
+{
+    NSArray *documentdirectory = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = documentdirectory[0];
+    
+    return [path stringByAppendingPathComponent:@"items.data"];
+}
 
 @end
