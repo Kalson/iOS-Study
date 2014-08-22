@@ -10,4 +10,6 @@
 
 @interface NAItemTVC : UITableViewController
 
+@property (nonatomic) NSMutableArray *items;
+
 @end

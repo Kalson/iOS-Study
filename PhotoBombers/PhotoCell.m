@@ -19,7 +19,7 @@
         self.imageView = [[UIImageView alloc]initWithFrame:self.bounds];
         self.imageView.image = [UIImage imageNamed:@"Treehouse"];
         [self.contentView addSubview:self.imageView];
-       
+        
     }
     return self;
 }

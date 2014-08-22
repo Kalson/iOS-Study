@@ -7,7 +7,7 @@
 //
 
 #import "THAppDelegate.h"
-#import "PhotosViewController.h"
+#import "PhotosVC.h"
 
 @implementation THAppDelegate
 
@@ -15,14 +15,15 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-   
     
-    UINavigationController *nC = [[UINavigationController alloc]initWithRootViewController:[[PhotosViewController alloc]init]];
-    self.window.rootViewController = nC;
     
-    UINavigationBar *navBar = nC.navigationBar;
-    navBar.barTintColor = [UIColor colorWithRed:0.835f green:0.412f blue:0.110f alpha:1.0f];
-    navBar.barStyle = UIStatusBarStyleLightContent;
+    UINavigationController *navC = [[UINavigationController alloc]initWithRootViewController:[[PhotosVC alloc]init]];
+    self.window.rootViewController = navC;
+    
+    UINavigationBar *navBar = navC.navigationBar;
+    navBar.barTintColor = [UIColor orangeColor];
+    navBar.barStyle = UIBarStyleBlackOpaque;
+    
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

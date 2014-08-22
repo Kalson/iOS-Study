@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 Kalson Kalu. All rights reserved.
 //
 
-#import "PhotosViewController.h"
+#import "PhotosVC.h"
 #import "PhotoCell.h"
 
-@interface PhotosViewController ()
+@interface PhotosVC ()
 
 @end
 
-@implementation PhotosViewController
+@implementation PhotosVC
 
 - (instancetype)init
 {
@@ -22,25 +22,22 @@
     layout.minimumInteritemSpacing = 1.0;
     layout.minimumLineSpacing = 1.0;
     
-    return (self = [super initWithCollectionViewLayout:layout]);
     
+    return (self = [super initWithCollectionViewLayout:layout]);
 }
-
 
 
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    [self.collectionView registerClass:[PhotoCell class] forCellWithReuseIdentifier:@"cell"];
     
     self.title = @"Photo Bombers";
-    [self.collectionView registerClass:[PhotoCell class] forCellWithReuseIdentifier:@"photo"];
-    
-    self.collectionView.backgroundColor = [UIColor whiteColor];
-    
+
+
     
 }
-
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -49,12 +46,12 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"photo" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor lightGrayColor];
-
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
+    cell.backgroundColor = [UIColor grayColor];
     return cell;
 }
+
 
 
 

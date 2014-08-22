@@ -16,7 +16,7 @@
 @implementation NAItemTVC
 {
     NAItemInfoVC *ItemInfoVC;
-    NSMutableArray *items;
+    NSMutableDictionary *itemss;
 
 }
 
@@ -29,7 +29,7 @@
         [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
         
         ItemInfoVC = [[NAItemInfoVC alloc]init];
-        items = [@[]mutableCopy];
+//        items = [@[]mutableCopy];
         
 //        items = ([self loadItemData]) ? [self loadItemData]:[@[] mutableCopy];
     }
@@ -62,13 +62,16 @@
     [self.navigationController pushViewController:ItemInfoVC animated:YES];
     ItemInfoVC.view.backgroundColor = [UIColor whiteColor];
     
-    ItemInfoVC.itemInfo = items;;
+//    ItemInfoVC.itemInfo = items;
+    ItemInfoVC.itemInfo = itemss[@"itemInfo"];
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+    NSMutableArray *items = itemss[@"itemInfo"];
+
     return items.count;
 }
 
@@ -77,7 +80,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = items[indexPath.row][@"itemInfo"];
+//    cell.textLabel.text = items[indexPath.row][@"itemInfo"];
+    cell.textLabel.text = itemss[@"itemInfo"];
     
     return cell;
 }
@@ -85,7 +89,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
       // passing the the array to the subclass
-    ItemInfoVC.itemInfo = items[indexPath.row];
+//    ItemInfoVC.itemInfo = items[indexPath.row];
   
     
 }
@@ -103,7 +107,7 @@
 
 - (void)saveItemData
 {
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:items];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:itemss];
     [data writeToFile:[self itemFilePath] atomically:YES];
 }
 

@@ -59,7 +59,6 @@
     
     [self.itemInfo addObject:[@[
                                 [@{
-                                   
                                    @"itemInfo" :textView.text
                                    
                                    }mutableCopy]
