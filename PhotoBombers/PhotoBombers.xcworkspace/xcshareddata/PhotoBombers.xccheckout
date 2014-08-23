@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F6CDFCA5-45D5-4084-9360-C4AE60DB1E00</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PhotoBombers</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5F5057D2-E1A9-4B48-A433-6966937DFA97</key>
+		<string>https://github.com/Kalson/iOS-Study.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>PhotoBombers/PhotoBombers.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5F5057D2-E1A9-4B48-A433-6966937DFA97</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Kalson/iOS-Study.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5F5057D2-E1A9-4B48-A433-6966937DFA97</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5F5057D2-E1A9-4B48-A433-6966937DFA97</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS-Study</string>
+		</dict>
+	</array>
+</dict>
+</plist>
