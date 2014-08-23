@@ -28,7 +28,8 @@
         
         [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
         
-        ItemInfoVC = [[NAItemInfoVC alloc]init];
+        itemss = [@{@"itemInfo" : [@[] mutableCopy] } mutableCopy];
+        
 //        items = [@[]mutableCopy];
         
 //        items = ([self loadItemData]) ? [self loadItemData]:[@[] mutableCopy];
@@ -59,11 +60,14 @@
 
 - (void)newItemButton
 {
+    // alloc/init a new view controller here
+    ItemInfoVC = [[NAItemInfoVC alloc]init];
+    ItemInfoVC.itemInfo = itemss[@"itemInfo"];
+
     [self.navigationController pushViewController:ItemInfoVC animated:YES];
     ItemInfoVC.view.backgroundColor = [UIColor whiteColor];
     
 //    ItemInfoVC.itemInfo = items;
-    ItemInfoVC.itemInfo = itemss[@"itemInfo"];
 }
 
 
@@ -71,6 +75,7 @@
 {
     // Return the number of rows in the section.
     NSMutableArray *items = itemss[@"itemInfo"];
+    // to access the key:itemInfo of the Dictionary
 
     return items.count;
 }
@@ -81,7 +86,9 @@
     
     // Configure the cell...
 //    cell.textLabel.text = items[indexPath.row][@"itemInfo"];
-    cell.textLabel.text = itemss[@"itemInfo"];
+    cell.textLabel.text = itemss[@"itemInfo"][indexPath.row][@"text"];
+    
+    NSLog(@"%@",itemss[@"itemInfo"][indexPath.row]);
     
     return cell;
 }

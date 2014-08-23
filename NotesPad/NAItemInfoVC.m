@@ -57,12 +57,11 @@
     [textView resignFirstResponder];
     self.navigationItem.rightBarButtonItem = nil;
     
-    [self.itemInfo addObject:[@[
-                                [@{
-                                   @"itemInfo" :textView.text
+    [self.itemInfo addObject:[@{
+                                   @"text" :textView.text
                                    
                                    }mutableCopy]
-                                ]mutableCopy]];
+                                ];
     
 //    [self.navigationController popToRootViewControllerAnimated:YES];
 }
