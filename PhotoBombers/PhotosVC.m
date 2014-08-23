@@ -34,6 +34,23 @@
     [self.collectionView registerClass:[PhotoCell class] forCellWithReuseIdentifier:@"cell"];
     
     self.title = @"Photo Bombers";
+    
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    NSURL *url = [NSURL URLWithString:@"http://blog.teamtreehouse.com/api/get_recent_summary/"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    // to download info from the internet
+    NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:request completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
+        
+        // to get the content of the url
+        NSString *text = [NSString stringWithContentsOfURL:location encoding:NSUTF8StringEncoding error:nil];
+        
+        NSLog(@"Response: %@",text);
+    }];
+    
+    [task resume];
 
 
     
