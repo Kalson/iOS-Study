@@ -9,6 +9,9 @@
 #import "THAppDelegate.h"
 #import "PhotosVC.h"
 
+#import <SimpleAuth/SimpleAuth.h>
+
+
 @implementation THAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -17,6 +20,10 @@
     // Override point for customization after application launch.
     
     
+    SimpleAuth.configuration[@"instagram"] = @{
+                                               @"client_id" : @"d9d6b1dd9ae74b59be2f88894aa54e06",
+                                               SimpleAuthRedirectURIKey : @"photobombers://auth/instagram"
+                                               };    
     UINavigationController *navC = [[UINavigationController alloc]initWithRootViewController:[[PhotosVC alloc]init]];
     self.window.rootViewController = navC;
     
