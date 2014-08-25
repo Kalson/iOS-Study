@@ -21,6 +21,11 @@
         self.imageView = [[UIImageView alloc]initWithFrame:self.bounds];
         [self.contentView addSubview:self.imageView];
         
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(like)];
+        tap.numberOfTapsRequired = 2;
+        
+        [self addGestureRecognizer:tap];
+        
     }
     return self;
 }
@@ -30,6 +35,23 @@
     [super layoutSubviews];
     self.imageView.frame = self.contentView.bounds;
     
+}
+
+- (void)like
+{
+    // Now, a simple request to use this URL to like the photo.
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSString *accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
+    NSString *urlString = [NSString stringWithFormat:@"https://api.instagram.com/v1/media/%@/likes=%@", self.photo[@"id"], accessToken];
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Liked" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+    [alert show];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [alert dismissWithClickedButtonIndex:0 animated:YES];
+    });
 }
 
 // setPhoto gets called anytime someone writes "cell.photos ="

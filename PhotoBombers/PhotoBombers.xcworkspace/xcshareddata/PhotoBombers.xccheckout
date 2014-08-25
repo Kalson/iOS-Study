@@ -10,29 +10,29 @@
 	<string>PhotoBombers</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>5F5057D2-E1A9-4B48-A433-6966937DFA97</key>
+		<key>EDE940B8DADB2281BC17EF6A4F666D10A8D22808</key>
 		<string>https://github.com/Kalson/iOS-Study.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>PhotoBombers/PhotoBombers.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>5F5057D2-E1A9-4B48-A433-6966937DFA97</key>
+		<key>EDE940B8DADB2281BC17EF6A4F666D10A8D22808</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/Kalson/iOS-Study.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>5F5057D2-E1A9-4B48-A433-6966937DFA97</string>
+	<string>EDE940B8DADB2281BC17EF6A4F666D10A8D22808</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>5F5057D2-E1A9-4B48-A433-6966937DFA97</string>
+			<string>EDE940B8DADB2281BC17EF6A4F666D10A8D22808</string>
 			<key>IDESourceControlWCCName</key>
 			<string>iOS-Study</string>
 		</dict>
