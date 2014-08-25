@@ -14,6 +14,7 @@
 @interface PhotosVC ()
 
 @property (nonatomic) NSString *accessToken;
+@property (nonatomic) NSArray *photos;
 
 @end
 
@@ -62,25 +63,7 @@
              }];
             
         } else {
-            // if we do, we don't need to ask the user to sign in.
-            NSLog(@"Signed In!");
-            
-          //  Now that we have the access token, let's make an authenticated request to Instagram. And for now, we'll just log some urls of photos.
-            NSURLSession *session = [NSURLSession sharedSession];
-            
-            // url for our request
-            NSString *urlString = [NSString stringWithFormat:@"https://api.instagram.com/v1/tags/photobomb/media/recent?access_token=%@",self.accessToken];
-
-            NSURL *url = [NSURL URLWithString:urlString];
-            NSURLRequest *request = [NSURLRequest requestWithURL:url];
-            NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:request completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
-                // to get the content of the url
-                NSString *text = [NSString stringWithContentsOfURL:location encoding:NSUTF8StringEncoding error:nil];
-                
-                NSLog(@"text: %@",text);
-            }];
-            
-            [task resume];
+            [self refresh];
 
         }
     
@@ -106,16 +89,68 @@
     
 }
 
+- (void)refresh
+{
+    // if we do, we don't need to ask the user to sign in.
+    NSLog(@"Signed In!");
+    
+    //  Now that we have the access token, let's make an authenticated request to Instagram. And for now, we'll just log some urls of photos.
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    // url for our request
+    NSString *urlString = [NSString stringWithFormat:@"https://api.instagram.com/v1/tags/photobomb/media/recent?access_token=%@",self.accessToken];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    // to download info from the internet (it writes the server's response data into a temporary file that provides the app with progress updates)
+    NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:request completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error)
+    {
+      /*
+       NSLog(@"Response: %@",response);
+       // to get the content of the url
+       NSString *text = [NSString stringWithContentsOfURL:location encoding:NSUTF8StringEncoding error:nil];
+       
+       NSLog(@"text: %@",text); */
+      
+      // after getting the json response from this ^ and pasting it on prettyjson.com
+      NSData *data = [NSData dataWithContentsOfURL:location];
+        
+        // the response from Instagram
+      NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+        // converts the json into foundation objects
+      
+      //  make an array of the photos to get them
+      self.photos = [responseDictionary valueForKeyPath:@"data"];
+        
+        // @"data.images.standard_resolution.url" for just getting URLs
+        
+      //  We need to tell the collection view to reload its data, since collection view doesn't know when we change our data source.
+        // We also need to do this back on the main queue. Because the collection view is intended to be called from the main queue.
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.collectionView reloadData];
+        });
+        
+    }];
+    
+    [task resume];
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;
+    return self.photos.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    PhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
     cell.backgroundColor = [UIColor grayColor];
+    
+    cell.photo = self.photos[indexPath.row];
+    // This gets the photo out of the photo's array, for a corresponding row and sets it on our cell.
+    
     return cell;
 }
 

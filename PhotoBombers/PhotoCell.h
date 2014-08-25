@@ -12,4 +12,7 @@
 
 @property (nonatomic) UIImageView *imageView;
 
+@property (nonatomic) NSDictionary *photo;
+// here we'll pass in the photo dictionary from our photos array in our view controller.
+
 @end
