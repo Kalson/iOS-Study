@@ -15,8 +15,7 @@
 
 @implementation NAItemTVC
 {
-    NAItemInfoVC *ItemInfoVC;
-    NSMutableDictionary *itemss;
+    NSMutableDictionary *itemsInfo;
 
 }
 
@@ -28,7 +27,9 @@
         
         [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
         
-        itemss = [@{@"itemInfo" : [@[] mutableCopy] } mutableCopy];
+        itemsInfo = [@{
+                       @"items" : [@[] mutableCopy]
+                       } mutableCopy];
         
 //        items = [@[]mutableCopy];
         
@@ -61,20 +62,19 @@
 - (void)newItemButton
 {
     // alloc/init a new view controller here
-    ItemInfoVC = [[NAItemInfoVC alloc]init];
-    ItemInfoVC.itemInfo = itemss[@"itemInfo"];
+    NAItemInfoVC *ItemInfoVC = [[NAItemInfoVC alloc]init];
+    ItemInfoVC.itemInfo = itemsInfo[@"items"];
 
     [self.navigationController pushViewController:ItemInfoVC animated:YES];
     ItemInfoVC.view.backgroundColor = [UIColor whiteColor];
-    
-//    ItemInfoVC.itemInfo = items;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    NSMutableArray *items = itemss[@"itemInfo"];
+    
+    NSMutableArray *items = itemsInfo[@"items"];
     // to access the key:itemInfo of the Dictionary
 
     return items.count;
@@ -86,9 +86,9 @@
     
     // Configure the cell...
 //    cell.textLabel.text = items[indexPath.row][@"itemInfo"];
-    cell.textLabel.text = itemss[@"itemInfo"][indexPath.row][@"text"];
+    cell.textLabel.text = itemsInfo[@"items"][indexPath.row][@"text"];
     
-    NSLog(@"%@",itemss[@"itemInfo"][indexPath.row]);
+    NSLog(@"%@",itemsInfo[@"items"][indexPath.row]);
     
     return cell;
 }
@@ -97,6 +97,8 @@
 {
       // passing the the array to the subclass
 //    ItemInfoVC.itemInfo = items[indexPath.row];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
   
     
 }
@@ -114,7 +116,7 @@
 
 - (void)saveItemData
 {
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:itemss];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:itemsInfo];
     [data writeToFile:[self itemFilePath] atomically:YES];
 }
 
