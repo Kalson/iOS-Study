@@ -15,7 +15,8 @@
 
 @implementation NAItemTVC
 {
-    NSMutableDictionary *itemsInfo;
+//    NSMutableDictionary *itemsInfo;
+    NSMutableArray *items;
 
 }
 
@@ -27,11 +28,12 @@
         
         [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
         
-        itemsInfo = [@{
-                       @"items" : [@[] mutableCopy]
-                       } mutableCopy];
+//        itemsInfo = [@{
+//                       @"items" : [@[] mutableCopy]
+//                       } mutableCopy];
+        // pass an array here too!
         
-//        items = [@[]mutableCopy];
+        items = [@[]mutableCopy];
         
 //        items = ([self loadItemData]) ? [self loadItemData]:[@[] mutableCopy];
     }
@@ -63,8 +65,12 @@
 {
     // alloc/init a new view controller here
     NAItemInfoVC *ItemInfoVC = [[NAItemInfoVC alloc]init];
-    ItemInfoVC.itemInfo = itemsInfo[@"items"];
+//    ItemInfoVC.itemInfo = itemsInfo[@"items"];
+    ItemInfoVC.itemInfo = items;
+    // setting items to the dictionary "itemInfo"
 
+    
+    // pass an array here
     [self.navigationController pushViewController:ItemInfoVC animated:YES];
     ItemInfoVC.view.backgroundColor = [UIColor whiteColor];
 }
@@ -74,7 +80,7 @@
 {
     // Return the number of rows in the section.
     
-    NSMutableArray *items = itemsInfo[@"items"];
+//    NSMutableArray *items = itemsInfo[@"items"];
     // to access the key:itemInfo of the Dictionary
 
     return items.count;
@@ -86,9 +92,9 @@
     
     // Configure the cell...
 //    cell.textLabel.text = items[indexPath.row][@"itemInfo"];
-    cell.textLabel.text = itemsInfo[@"items"][indexPath.row][@"text"];
+    cell.textLabel.text = items[indexPath.row][@"text"];
     
-    NSLog(@"%@",itemsInfo[@"items"][indexPath.row]);
+    NSLog(@"ichigo = %@",items[indexPath.row]);
     
     return cell;
 }
@@ -108,6 +114,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        [items removeObject:items[indexPath.row]];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -116,7 +123,7 @@
 
 - (void)saveItemData
 {
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:itemsInfo];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:items];
     [data writeToFile:[self itemFilePath] atomically:YES];
 }
 
