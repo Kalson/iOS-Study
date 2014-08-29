@@ -15,7 +15,6 @@
 
 @implementation NAItemTVC
 {
-//    NSMutableDictionary *itemsInfo;
     NSMutableArray *items;
 
 }
@@ -65,12 +64,10 @@
 {
     // alloc/init a new view controller here
     NAItemInfoVC *ItemInfoVC = [[NAItemInfoVC alloc]init];
-//    ItemInfoVC.itemInfo = itemsInfo[@"items"];
-    ItemInfoVC.itemInfo = items;
-    // setting items to the dictionary "itemInfo"
 
-    
-    // pass an array here
+    ItemInfoVC.itemInfo = items;
+    // passing ieminfo to items
+
     [self.navigationController pushViewController:ItemInfoVC animated:YES];
     ItemInfoVC.view.backgroundColor = [UIColor whiteColor];
 }

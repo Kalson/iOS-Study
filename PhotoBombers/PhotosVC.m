@@ -8,6 +8,7 @@
 
 #import "PhotosVC.h"
 #import "PhotoCell.h"
+#import "DetailViewController.h"
 
 #import <SimpleAuth/SimpleAuth.h>
 
@@ -159,6 +160,21 @@
 }
 
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    DetailViewController *detailVC = [[DetailViewController alloc]init];
+    [self.navigationController pushViewController:detailVC animated:YES];
+    
+    detailVC.photo = self.photos[indexPath.row];
+}
+
 
 
 @end
+
+
+
+
+
+
+
