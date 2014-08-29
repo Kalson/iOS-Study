@@ -26,14 +26,12 @@
     items = [@[
                
                @{
-                 @"category": @"Foods",
-                 @"name": @"Pizza"
-                 },
-                @{
-                   @"category": @"Movies",
-                   @"type":@"Transformers"
-                   }
-//
+                   @"text": @{
+                           @"Foods":@"Pizza"
+                           }
+                     
+                     }
+//               @{@"Movies":@"Transformers"},
 //                 @"Foods":@"Pizza",
 //                 @"Tv Shows":@"Family Matters, Full House",
 //                 @"Anime":@"Bleach, Naruto"
@@ -77,12 +75,9 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    NSArray * keys = [items[indexPath.row] allKeys];
+    NSArray * keys = [items[indexPath.row][@"text"] allKeys];
     
-    cell.textLabel.text = keys[0];
-    
-//    NSString * value = items[indexPath.row][@"text"][keys[indexPath.row]];
-    
+    cell.textLabel.text = keys[indexPath.row];
 //    cell.textLabel.text = items[indexPath.row][@"Foods"];
 //    cell.textLabel.text = items[indexPath.row][@"Tv Shows"];
 //    cell.textLabel.text = items[indexPath.row][@"Anime"];
