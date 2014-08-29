@@ -31,7 +31,7 @@
                  },
                 @{
                    @"category": @"Movies",
-                   @"name":@"Transformers"
+                   @"type":@"Transformers"
                    }
 //
 //                 @"Foods":@"Pizza",
@@ -77,12 +77,9 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+    NSArray * keys = [items[indexPath.row] allKeys];
     
-    NSDictionary * info = items[indexPath.row];
-    
-    cell.detailTextLabel.text = info[@"name"];
-    cell.textLabel.text = info[@"category"];
+    cell.textLabel.text = keys[0];
     
 //    NSString * value = items[indexPath.row][@"text"][keys[indexPath.row]];
     
