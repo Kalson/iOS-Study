@@ -10,4 +10,6 @@
 
 @interface TableVC : UIViewController
 
+@property (nonatomic) NSMutableArray *items;
+
 @end

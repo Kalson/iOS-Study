@@ -14,46 +14,31 @@
 @end
 
 @implementation TableVC
-{
-    NSMutableArray *items;
-}
+//{
+//    NSMutableArray *items;
+//}
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    items = [@[
-               
-               @{
-                   @"text": @{
-                           @"Foods":@"Pizza"
-                           }
-                     
-                     }
-//               @{@"Movies":@"Transformers"},
-//                 @"Foods":@"Pizza",
-//                 @"Tv Shows":@"Family Matters, Full House",
-//                 @"Anime":@"Bleach, Naruto"
-//               @{@"Foods":@"Pizza"},
-//               @{@"Tv Shows":@"Family Matters, Full House"},
-//               @{@"Anime":@"Bleach, Naruto"}
-
-                 
-        
-               
-               ]mutableCopy];
+    self.items = [@[
+                    
+                    @{@"Category":@"Movies",
+                      @"Name":@"TMNT, Transformers"
+                      },
+                    @{ @"Category":@"Foods",
+                       @"Name":@"Pizza, Hamburgers, chicken",
+                       },
+                    @{ @"Category":@"Tv Shows",
+                       @"Name":@"Family Matters, Full House",
+                       },
+                    @{ @"Category":@"Anime",
+                       @"Name":@"Bleach, Naruto",
+                       }
+                    ]mutableCopy];
     
-    
-    
-    
-//    items = [@[
-//               @"Movies",
-//               @"Foods",
-//               @"Tv Shows",
-//               @"Anime"
-//               
-//               ]mutableCopy];
     
     UITableView *theTableView = [[UITableView alloc]initWithFrame:self.view.frame];
     theTableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
@@ -67,7 +52,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return items.count;
+//    NSArray * keys = [items[section][@"text"] allKeys];
+
+    return self.items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -75,25 +62,24 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    NSArray * keys = [items[indexPath.row][@"text"] allKeys];
+//    NSArray * keys = [self.items[indexPath.row]allKeys];
+//    cell.textLabel.text = keys[indexPath.row];
     
-    cell.textLabel.text = keys[indexPath.row];
-//    cell.textLabel.text = items[indexPath.row][@"Foods"];
-//    cell.textLabel.text = items[indexPath.row][@"Tv Shows"];
-//    cell.textLabel.text = items[indexPath.row][@"Anime"];
-
+//    NSString * value = items[indexPath.row][@"text"]z
     
-    
+    cell.textLabel.text = self.items[indexPath.row][@"Category"];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DetailVC *DetailViewC = [[DetailVC alloc]init];
+    DetailVC *DetailViewC = [[DetailVC alloc]initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:DetailViewC animated:YES];
-    DetailViewC.detailDict = items[indexPath.row];
-
+    NSLog(@"%@", (NSString*)self.items[indexPath.row]);
+    DetailViewC.detailInfo = self.items[indexPath.row][@"Name"];
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {

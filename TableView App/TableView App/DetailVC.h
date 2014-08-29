@@ -10,6 +10,10 @@
 
 @interface DetailVC : UIViewController
 
-@property (nonatomic) NSDictionary *detailDict;
+@property (nonatomic) NSString *detailInfo;
+
+// the property depends on what ur passing through the value
+
+// get better with debugging by using breakpoints
 
 @end
