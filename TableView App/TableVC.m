@@ -77,6 +77,8 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+    
     NSDictionary * info = items[indexPath.row];
     
     cell.detailTextLabel.text = info[@"name"];
