@@ -10,7 +10,10 @@
 
 @interface DetailVC : UIViewController
 
+@property (nonatomic) NSString *detailName;
 @property (nonatomic) NSString *detailInfo;
+@property (nonatomic) UIImageView *imageView;
+
 
 // the property depends on what ur passing through the value
 

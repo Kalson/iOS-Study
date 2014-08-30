@@ -15,7 +15,9 @@
 
 @implementation DetailVC
 {
-    UITextField *textView;
+    UITextField *textName;
+    UITextView *textInfo;
+
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -25,17 +27,25 @@
         // Custom initialization
         self.view.backgroundColor = [UIColor whiteColor];
         
-        textView = [[UITextField alloc]initWithFrame:CGRectMake(10, 90, SCREEN_WIDTH - 20, 40)];
-        textView.backgroundColor = [UIColor redColor];
-        [self.view addSubview:textView];
+        //generic fix
+//        self.automaticallyAdjustsScrollViewInsets = NO;
+        // textView doesn't let me show the text when I conform it, why?
+        
+        textName = [[UITextField alloc]initWithFrame:CGRectMake(10, 90, SCREEN_WIDTH - 20, 40)];
+        textName.backgroundColor = [UIColor redColor];
+        [self.view addSubview:textName];
         
         UIView *paddingView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 10, 20)];
-        textView.leftView = paddingView;
-        textView.leftViewMode = UITextFieldViewModeAlways;
-
+        textName.leftView = paddingView;
+        textName.leftViewMode = UITextFieldViewModeAlways;
         
+        textInfo = [[UITextView alloc]initWithFrame:CGRectMake(10, 140, SCREEN_WIDTH - 20, SCREEN_HEIGHT - 150)];
+        textInfo.backgroundColor = [UIColor orangeColor];
+        [self.view addSubview:textInfo];
         
-        // textView doesn't let me show the text when I conform it, why?
+    
+        
+   
         // why does the textfield start at the middle when set to self.view.frame
         
         
@@ -46,11 +56,19 @@
     }
     return self;
 }
+- (void)setDetailName:(NSString *)detailName
+{
+    _detailName = detailName;
+    
+    textName.text = detailName;
+    
+}
+
 - (void)setDetailInfo:(NSString *)detailInfo
 {
     _detailInfo = detailInfo;
     
-    textView.text = detailInfo;
+    textInfo.text = detailInfo;
 }
 
 - (void)viewDidLoad
