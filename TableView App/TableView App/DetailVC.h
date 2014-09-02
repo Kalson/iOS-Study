@@ -12,7 +12,8 @@
 
 @property (nonatomic) NSString *detailName;
 @property (nonatomic) NSString *detailInfo;
-@property (nonatomic) UIImageView *imageView;
+@property (nonatomic) NSString *detailMovieInfo;
+@property (nonatomic) UIImage *image;
 
 
 // the property depends on what ur passing through the value
