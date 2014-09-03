@@ -40,6 +40,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
+
+    
     vC = [[LPAVC alloc]init];
     
     int rowCount = 4;

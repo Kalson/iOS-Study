@@ -21,6 +21,7 @@
 		26418618199ACF8D007CB5D4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 26418616199ACF8D007CB5D4 /* InfoPlist.strings */; };
 		2641861A199ACF8D007CB5D4 /* Login_PageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 26418619199ACF8D007CB5D4 /* Login_PageTests.m */; };
 		26418625199AD01F007CB5D4 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 26418624199AD01F007CB5D4 /* LoginVC.m */; };
+		2645026C19B772FB0043087E /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2645026B19B772FB0043087E /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		26418619199ACF8D007CB5D4 /* Login_PageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Login_PageTests.m; sourceTree = "<group>"; };
 		26418623199AD01F007CB5D4 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		26418624199AD01F007CB5D4 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		2645026B19B772FB0043087E /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			files = (
 				264185F7199ACF8C007CB5D4 /* CoreGraphics.framework in Frameworks */,
 				264185F9199ACF8C007CB5D4 /* UIKit.framework in Frameworks */,
+				2645026C19B772FB0043087E /* Crashlytics.framework in Frameworks */,
 				264185F5199ACF8C007CB5D4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,6 +106,7 @@
 		264185F3199ACF8C007CB5D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2645026B19B772FB0043087E /* Crashlytics.framework */,
 				264185F4199ACF8C007CB5D4 /* Foundation.framework */,
 				264185F6199ACF8C007CB5D4 /* CoreGraphics.framework */,
 				264185F8199ACF8C007CB5D4 /* UIKit.framework */,
@@ -172,6 +176,7 @@
 				264185ED199ACF8C007CB5D4 /* Sources */,
 				264185EE199ACF8C007CB5D4 /* Frameworks */,
 				264185EF199ACF8C007CB5D4 /* Resources */,
+				2645026A19B772A40043087E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -252,6 +257,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2645026A19B772A40043087E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run ddd9649385adaca785883676003a240bde64ca49 646e2760306fac6a269050969dc870f2fe8bfd3c355c3b391fef5a5764357e490969dc870f2fe8bfd3c355c3b391fef5a5764357e49";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		264185ED199ACF8C007CB5D4 /* Sources */ = {
@@ -378,6 +399,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Login Page/Login Page-Prefix.pch";
 				INFOPLIST_FILE = "Login Page/Login Page-Info.plist";
@@ -391,6 +416,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Login Page/Login Page-Prefix.pch";
 				INFOPLIST_FILE = "Login Page/Login Page-Info.plist";
