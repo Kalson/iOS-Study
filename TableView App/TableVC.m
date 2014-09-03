@@ -53,15 +53,6 @@
                        @"Info":@"Shia Saide",
                        }
 
-//                    @{ @"Category":@"Foods",
-//                       @"Name":@"Pizza, Hamburgers, chicken",
-//                       },
-//                    @{ @"Category":@"Tv Shows",
-//                       @"Name":@"Family Matters, Full House",
-//                       },
-//                    @{ @"Category":@"Anime",
-//                       @"Name":@"Bleach, Naruto",
-//                       }
                     ]mutableCopy];
     
     self.title = @"TableView Practice";
@@ -75,7 +66,22 @@
     theTableView.dataSource = self;
     
     [theTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
-    [theTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"photocell"];
+//    [theTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"photocell"];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"Kool";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -87,31 +93,29 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
-//    NSArray * keys = [self.items[indexPath.row]allKeys];
-//    cell.textLabel.text = keys[indexPath.row];
-    
-//    NSString * value = items[indexPath.row][@"text"]z
-    
-//    if (indexPath.row == 0) {
-//        
-//        cell.textLabel.text = self.items[indexPath.row][@"Category"];
-//    } else if (indexPath.row == 1){
-         UITableViewCell *cell2 = [tableView dequeueReusableCellWithIdentifier:@"photocell" forIndexPath:indexPath];
-        cell2.textLabel.text = self.items[indexPath.row][@"Category"];
-        return cell2;
+    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
 
-//    }
+       NSLog(@"cell =%@",cell);
     
-//    if ([tableView dequeueReusableCellWithIdentifier:@"photo"])
-//    {
-//        cell.imageView.image = self.items[indexPath.row][@"Image"];
-//        [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"photo"];
-//    }
+    NSArray *keys = [self.items[indexPath.row]allKeys];;
     
-    return cell2;
+    if (indexPath.row == 0) {
+        
+        
+        cell.textLabel.text = self.items[indexPath.row][@"Category"];
+        cell.detailTextLabel.text = keys[2];
+//        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"photocell"];
+//        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:@"photocell"];
+
+    } else {
+        
+        cell.textLabel.text = self.items[indexPath.row][@"Category"];
+        cell.detailTextLabel.text = keys[0];
+
+
+    }
+    
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -121,7 +125,11 @@
     NSLog(@"%@", (NSString*)self.items[indexPath.row]);
     DetailViewC.detailName = self.items[indexPath.row][@"Name"];
     DetailViewC.detailInfo = self.items[indexPath.row][@"Info"];
-    DetailViewC.image = self.items[indexPath.row][@"Image"];
+    
+    if (indexPath.row == 2) {
+        DetailViewC.image = self.items[indexPath.row][@"Image"];
+
+    }
     DetailViewC.detailMovieInfo = self.items[indexPath.row][@"Movies"];
 //    DetailViewC.detailName = self.items[indexPath.row][@"Movies"];
     
@@ -129,6 +137,8 @@
 //    {
 //       
 //    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 
