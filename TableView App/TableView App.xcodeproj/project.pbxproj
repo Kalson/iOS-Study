@@ -21,7 +21,7 @@
 		2676549819AFDB320043D7C3 /* TableView_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2676549719AFDB320043D7C3 /* TableView_AppTests.m */; };
 		267654A319AFDB510043D7C3 /* TableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 267654A219AFDB510043D7C3 /* TableVC.m */; };
 		267654E719AFEA700043D7C3 /* DetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 267654E619AFEA700043D7C3 /* DetailVC.m */; };
-		26AC29C619B1899100B2D0E8 /* Shia.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26AC29C519B1899100B2D0E8 /* Shia.jpg */; };
+		26AC29C619B1899100B2D0E8 /* Shia.png in Resources */ = {isa = PBXBuildFile; fileRef = 26AC29C519B1899100B2D0E8 /* Shia.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +55,7 @@
 		267654A219AFDB510043D7C3 /* TableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableVC.m; path = ../TableVC.m; sourceTree = "<group>"; };
 		267654E519AFEA700043D7C3 /* DetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVC.h; sourceTree = "<group>"; };
 		267654E619AFEA700043D7C3 /* DetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVC.m; sourceTree = "<group>"; };
-		26AC29C519B1899100B2D0E8 /* Shia.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Shia.jpg; path = ../../../Downloads/Shia.jpg; sourceTree = "<group>"; };
+		26AC29C519B1899100B2D0E8 /* Shia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shia.png; path = ../../../Downloads/Shia.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +85,7 @@
 		2676546619AFDB320043D7C3 = {
 			isa = PBXGroup;
 			children = (
-				26AC29C519B1899100B2D0E8 /* Shia.jpg */,
+				26AC29C519B1899100B2D0E8 /* Shia.png */,
 				2676547819AFDB320043D7C3 /* TableView App */,
 				2676549119AFDB320043D7C3 /* TableView AppTests */,
 				2676547119AFDB320043D7C3 /* Frameworks */,
@@ -234,7 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2676547D19AFDB320043D7C3 /* InfoPlist.strings in Resources */,
-				26AC29C619B1899100B2D0E8 /* Shia.jpg in Resources */,
+				26AC29C619B1899100B2D0E8 /* Shia.png in Resources */,
 				2676548519AFDB320043D7C3 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
