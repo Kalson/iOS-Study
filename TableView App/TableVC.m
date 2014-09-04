@@ -161,7 +161,7 @@
     [self.navigationController pushViewController:DetailViewC animated:YES];
     
     keys = self.items[indexPath.row][@"keys"];
-    DetailViewC.movieInfo.backgroundColor = [UIColor greenColor];
+//    DetailViewC.movieInfo.backgroundColor = [UIColor greenColor];
     
     if ([keys containsObject:@"Image"]) {
         DetailViewC.image = self.items[indexPath.row][@"Image"];

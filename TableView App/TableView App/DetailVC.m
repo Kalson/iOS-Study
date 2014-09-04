@@ -47,7 +47,7 @@
         [self.view addSubview:textInfo];
         
         self.movieInfo = [[UITextView alloc]initWithFrame:CGRectMake(10, 120,  SCREEN_WIDTH - 20, 70)];
-//         self.movieInfo.backgroundColor = [UIColor greenColor];
+         self.movieInfo.backgroundColor = [UIColor greenColor];
          self.movieInfo.font = [UIFont systemFontOfSize:15];
         [self.view addSubview: self.movieInfo];
         
@@ -92,6 +92,14 @@
     _detailMovieInfo = detailMovieInfo;
     
      self.movieInfo.text = detailMovieInfo;
+    
+    if (detailMovieInfo == nil) {
+        
+        self.movieInfo.backgroundColor = [UIColor clearColor];
+        
+        // why use nil when its technically not a non-existance object?
+        
+    }
 }
 
 
