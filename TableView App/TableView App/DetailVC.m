@@ -19,7 +19,7 @@
     UITextView *textInfo;
     
     UIImageView *imagePic;
-    UITextView *movieInfo;
+//    UITextView *movieInfo;
     
 }
 
@@ -46,17 +46,17 @@
         textInfo.backgroundColor = [UIColor orangeColor];
         [self.view addSubview:textInfo];
         
-        movieInfo = [[UITextView alloc]initWithFrame:CGRectMake(10, 120,  SCREEN_WIDTH - 20, 70)];
-        movieInfo.backgroundColor = [UIColor greenColor];
-        movieInfo.font = [UIFont systemFontOfSize:15];
-        [self.view addSubview:movieInfo];
+        self.movieInfo = [[UITextView alloc]initWithFrame:CGRectMake(10, 120,  SCREEN_WIDTH - 20, 70)];
+//         self.movieInfo.backgroundColor = [UIColor greenColor];
+         self.movieInfo.font = [UIFont systemFontOfSize:15];
+        [self.view addSubview: self.movieInfo];
         
         imagePic = [[UIImageView alloc]initWithFrame:CGRectMake(10, 200, SCREEN_WIDTH - 30, SCREEN_HEIGHT - 360)];
         [self.view addSubview:imagePic];
     
    
-        // why does the textfield start at the middle when set to self.view.frame
-        
+        //// fix layout
+        //// fix cell order when called on
         
 //        TableVC *tableVC = [TableVC new];
 //        [self.detailInfo addObject:@{@"Name":textView.text}];
@@ -91,7 +91,7 @@
 {
     _detailMovieInfo = detailMovieInfo;
     
-    movieInfo.text = detailMovieInfo;
+     self.movieInfo.text = detailMovieInfo;
 }
 
 

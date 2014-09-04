@@ -15,6 +15,7 @@
 @property (nonatomic) NSString *detailMovieInfo;
 @property (nonatomic) UIImage *image;
 
+@property (nonatomic)UITextView *movieInfo;
 
 // the property depends on what ur passing through the value
 
