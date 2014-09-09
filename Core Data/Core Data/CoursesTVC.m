@@ -48,12 +48,12 @@
 - (NSFetchedResultsController *) fetchedResultsController
 {
     if (_fetchedResultsController != nil) {
-        // is something inside the fetch results controller
+        // we want to see if something inside the fetch results controller
         return _fetchedResultsController;
     }
     // you need fetch request and a sort decriptor to create a fetch results controller
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-NSEntityDescription *entity = [NSEntityDescription entityForName:@"Course" inManagedObjectContext:<#context#>];
+NSEntityDescription *entity = [NSEntityDescription entityForName:@"Course" inManagedObjectContext:self.manageObjectContext];
 [fetchRequest setEntity:entity];
 
 // Specify how the fetched objects should be sorted

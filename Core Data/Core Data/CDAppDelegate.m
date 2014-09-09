@@ -27,6 +27,7 @@
 //    UINavigationController *navC = [[UINavigationController alloc]initWithRootViewController:cTVC];
 //    self.window.rootViewController = navC;
     
+    // points to UINavigation controller and letting it know its the root View Controller (done b/c of stroyboard)
     UINavigationController *navC = (UINavigationController *)self.window.rootViewController;
 //    CoursesTVC *cTVC = (CoursesTVC *)self.window.rootViewController; // what does this mean
     
