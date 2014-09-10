@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		265CEC4C19BFD6840034273A /* AddCourseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 265CEC4B19BFD6840034273A /* AddCourseVC.m */; };
 		26AFCC7619BC3BDD00E50B67 /* CoursesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AFCC7519BC3BDD00E50B67 /* CoursesTVC.m */; };
 		26FD91E119BC360800488409 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26FD91E019BC360800488409 /* Foundation.framework */; };
 		26FD91E319BC360800488409 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26FD91E219BC360800488409 /* CoreGraphics.framework */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		265CEC4A19BFD6840034273A /* AddCourseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCourseVC.h; sourceTree = "<group>"; };
+		265CEC4B19BFD6840034273A /* AddCourseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCourseVC.m; sourceTree = "<group>"; };
 		26AFCC7419BC3BDD00E50B67 /* CoursesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoursesTVC.h; sourceTree = "<group>"; };
 		26AFCC7519BC3BDD00E50B67 /* CoursesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoursesTVC.m; sourceTree = "<group>"; };
 		26FD91DD19BC360800488409 /* Core Data.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Core Data.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,10 +131,12 @@
 				26FD91F119BC360800488409 /* CDAppDelegate.h */,
 				26FD91F219BC360800488409 /* CDAppDelegate.m */,
 				26FD921819BC387600488409 /* Storyboard.storyboard */,
-				26AFCC7419BC3BDD00E50B67 /* CoursesTVC.h */,
-				26AFCC7519BC3BDD00E50B67 /* CoursesTVC.m */,
 				26FD921519BC382A00488409 /* Course.h */,
 				26FD921619BC382A00488409 /* Course.m */,
+				265CEC4A19BFD6840034273A /* AddCourseVC.h */,
+				265CEC4B19BFD6840034273A /* AddCourseVC.m */,
+				26AFCC7419BC3BDD00E50B67 /* CoursesTVC.h */,
+				26AFCC7519BC3BDD00E50B67 /* CoursesTVC.m */,
 				26FD91F419BC360800488409 /* Core_Data.xcdatamodeld */,
 			);
 			path = "Core Data";
@@ -265,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26FD921719BC382A00488409 /* Course.m in Sources */,
+				265CEC4C19BFD6840034273A /* AddCourseVC.m in Sources */,
 				26AFCC7619BC3BDD00E50B67 /* CoursesTVC.m in Sources */,
 				26FD91EF19BC360800488409 /* main.m in Sources */,
 				26FD91F319BC360800488409 /* CDAppDelegate.m in Sources */,

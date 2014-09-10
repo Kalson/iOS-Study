@@ -7,6 +7,7 @@
 //
 
 #import "CoursesTVC.h"
+#import "Course.h"
 
 @interface CoursesTVC ()
 
@@ -35,6 +36,13 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    // we perform a fetch similar to the way we save in manageobjectcontext by creating a NSError and pass it in to let us know if anything wrong happen
+    NSError *error = nil;
+    if (![[self fetchedResultsController] performFetch:&error]){
+        NSLog(@"Error! %@",error);
+        abort();
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,9 +65,14 @@ NSEntityDescription *entity = [NSEntityDescription entityForName:@"Course" inMan
 [fetchRequest setEntity:entity];
 
 // Specify how the fetched objects should be sorted
-NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"<#key#>"
-ascending:YES];
+NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"author"ascending:YES];
 [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+   
+    // fetch results controller object created
+    _fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest managedObjectContext:self.manageObjectContext sectionNameKeyPath:@"author" cacheName:nil];
+    
+    // then return the accessor methods (for anybody that wants to ask for the fetch results controller property)
+    return _fetchedResultsController;
 }
 
 
@@ -68,25 +81,38 @@ ascending:YES];
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 0;
+    return [[self.fetchedResultsController sections]count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 0;
+    
+    // were taking the results and putting in an id called secInfo and that has to comply with NSFetchedResultsSectionInfo protocol
+    id <NSFetchedResultsSectionInfo> secInfo = [[self.fetchedResultsController sections]objectAtIndex:section];
+    
+    // then make sure it responds to how many objects we have
+    return [secInfo numberOfObjects];
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     // Configure the cell...
+    
+    // and ask the fetch results controller whats at particular index path right now
+    Course *course = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    // and this method is being called repeatedly for every row in every section passing in the index path
+    
+    cell.textLabel.text = course.title;
     
     return cell;
 }
-*/
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [[[self.fetchedResultsController sections]objectAtIndex:section]name];
+}
 
 /*
 // Override to support conditional editing of the table view.

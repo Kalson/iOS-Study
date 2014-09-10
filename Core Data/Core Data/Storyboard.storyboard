@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vja-w4-PMr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vja-w4-PMr">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--CoursesTVC - Courses-->
+        <!--Courses-->
         <scene sceneID="I5d-Yj-9S4">
             <objects>
                 <tableViewController id="pU1-fl-nUR" customClass="CoursesTVC" sceneMemberID="viewController">
@@ -27,11 +27,87 @@
                             <outlet property="delegate" destination="pU1-fl-nUR" id="vdK-IZ-hKf"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Courses" id="7N6-bg-mqs"/>
+                    <navigationItem key="navigationItem" title="Courses" id="7N6-bg-mqs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4R3-M1-5DI">
+                            <connections>
+                                <segue destination="z69-12-44m" kind="modal" id="Uvg-nZ-Ao2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TsU-ub-gVC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="828" y="-39"/>
+            <point key="canvasLocation" x="698" y="-39"/>
+        </scene>
+        <!--Add CourseVC-->
+        <scene sceneID="Nfl-FK-gBM">
+            <objects>
+                <viewController id="gxq-Gx-go6" customClass="AddCourseVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MKE-85-sJn"/>
+                        <viewControllerLayoutGuide type="bottom" id="0GY-Rv-EFz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lLE-nr-uiM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAx-Jq-d8Y">
+                                <rect key="frame" x="16" y="82" width="37" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Author:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbR-uU-IEz">
+                                <rect key="frame" x="16" y="120" width="56" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Release Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYn-er-eHd">
+                                <rect key="frame" x="16" y="162" width="107" height="13"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wph-kk-lft">
+                                <rect key="frame" x="73" y="78" width="231" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="igh-kN-Abm">
+                                <rect key="frame" x="80" y="116" width="224" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aJa-yJ-cMl">
+                                <rect key="frame" x="131" y="154" width="173" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nRM-bU-X0l">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="GJR-mw-xKF">
+                            <connections>
+                                <action selector="cancelButton:" destination="gxq-Gx-go6" id="6HM-gC-jcZ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="iRw-S1-6Pp">
+                            <connections>
+                                <action selector="SaveButton:" destination="gxq-Gx-go6" id="3hA-sx-xV0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="authorField" destination="igh-kN-Abm" id="oMi-fZ-Ny5"/>
+                        <outlet property="dateField" destination="aJa-yJ-cMl" id="yMl-Mv-JB5"/>
+                        <outlet property="titleField" destination="wph-kk-lft" id="QY0-tE-oDE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ibA-Eq-Gu5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1091" y="633"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rP3-aC-ZGv">
@@ -50,6 +126,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lgl-Or-NSg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="302" y="-39"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="j6P-eI-yJ3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="z69-12-44m" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n6o-E7-HNz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gxq-Gx-go6" kind="relationship" relationship="rootViewController" id="dtD-AZ-zkr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q0G-eE-h8u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="698" y="633"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
