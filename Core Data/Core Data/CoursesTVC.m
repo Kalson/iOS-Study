@@ -18,6 +18,21 @@
 @synthesize fetchedResultsController = _fetchedResultsController;
 // use the synthesize statement b/c we want to use the underscore format, for the internal instance variable here and also so we can write our own lazy instantiation method to create this fetch results controller object and create it the right way
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"addCourse"]){}
+        // create a new pointer to addcourse View controller
+    AddCourseVC *acVC = (AddCourseVC *)[segue destinationViewController];
+    // we created AddCourseVC and sets its delegate to self (meaning me)
+    // ur delegate is me, so look back to me when somebody clicks the cancel or save button
+    acVC.delegate = self;
+    
+    // creating the new course managed object
+    Course *newCourse = (Course *)[NSEntityDescription insertNewObjectForEntityForName:@"Course" inManagedObjectContext:self.manageObjectContext];
+    
+    acVC.currentCourse = newCourse;
+}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];

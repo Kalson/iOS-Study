@@ -27,7 +27,7 @@
 @property (nonatomic, strong) Course *currentCourse;
 
 // now we need to actually define what methods that delegate needs to provide
-// we want this modal view controller to do two things: somebody click my save my button or my cancel button -> and its going to pass those behaviors to whoever is volunteering to be the delegate
+// we want this modal view controller to do two things: hey, somebody click my save my button or my cancel button -> and its going to pass those behaviors to whoever is volunteering to be the delegate
 
 - (IBAction)cancelButton:(id)sender;
 - (IBAction)SaveButton:(id)sender;
