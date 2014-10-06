@@ -60,6 +60,18 @@
     }
 }
 
+- (void)addCourseViewControllerDidSave
+{
+    
+}
+
+- (void)addCourseViewControllerDidCancel:(Course *)courseToDelete
+{
+    
+}
+
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
