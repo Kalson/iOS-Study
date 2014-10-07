@@ -9,6 +9,10 @@
 #import "CoursesTVC.h"
 #import "Course.h"
 
+// when the app loads and the TVC appears, we want it to fetch all the course entities out of the core data store
+
+// when u execute a fetch request u get an array of manage objects
+
 @interface CoursesTVC ()
 
 @end
@@ -20,17 +24,21 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"addCourse"]){}
+    if ([[segue identifier] isEqualToString:@"addCourse"]){
         // create a new pointer to addcourse View controller
-    AddCourseVC *acVC = (AddCourseVC *)[segue destinationViewController];
-    // we created AddCourseVC and sets its delegate to self (meaning me)
-    // ur delegate is me, so look back to me when somebody clicks the cancel or save button
-    acVC.delegate = self;
+        AddCourseVC *acVC = [(AddCourseVC *)[segue destinationViewController]topViewController];
+        // we created AddCourseVC and sets its delegate to self (meaning me)
+        // ur delegate is me, so look back to me when somebody clicks the cancel or save button
+        acVC.delegate = self;
+        
+        // creating the new course managed object
+        Course *newCourse = (Course *)[NSEntityDescription insertNewObjectForEntityForName:@"Course" inManagedObjectContext:[self manageObjectContext]];
+        
+        // and with that new course object created, we can reach into the modal window were about to segue to and say hey here ur current course, its this object. if u want to change it, change it (save it). If u don't u can cancel back out of it and get rid of it.
+        acVC.currentCourse = newCourse;
     
-    // creating the new course managed object
-    Course *newCourse = (Course *)[NSEntityDescription insertNewObjectForEntityForName:@"Course" inManagedObjectContext:self.manageObjectContext];
+    }
     
-    acVC.currentCourse = newCourse;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -52,21 +60,34 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    // execute the fetch request
     // we perform a fetch similar to the way we save in manageobjectcontext by creating a NSError and pass it in to let us know if anything wrong happen
     NSError *error = nil;
     if (![[self fetchedResultsController] performFetch:&error]){
         NSLog(@"Error! %@",error);
-        abort();
+        abort(); // shows an abort message
     }
 }
 
 - (void)addCourseViewControllerDidSave
 {
+    // now we need to respond to these delegate methods
     
+    NSError *error = nil;
+    NSManagedObjectContext *context = self.manageObjectContext;
+    if (! [context save:&error]) {
+        NSLog(@"Error! %@",error);
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)addCourseViewControllerDidCancel:(Course *)courseToDelete
 {
+    NSManagedObjectContext *context = self.manageObjectContext;
+    [context deleteObject:courseToDelete];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
@@ -79,6 +100,7 @@
 }
 
 #pragma mark - fetched results controller section
+// the lazy instantiation method
 // need have a method that returns an instance of a fetch result controller
 - (NSFetchedResultsController *) fetchedResultsController
 {
@@ -88,13 +110,13 @@
     }
     // you need fetch request and a sort decriptor to create a fetch results controller
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-NSEntityDescription *entity = [NSEntityDescription entityForName:@"Course" inManagedObjectContext:self.manageObjectContext];
-[fetchRequest setEntity:entity];
-
-// Specify how the fetched objects should be sorted
-NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"author"ascending:YES];
-[fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
-   
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Course" inManagedObjectContext:self.manageObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    // Specify how the fetched objects should be sorted
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"author"ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
     // fetch results controller object created
     _fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest managedObjectContext:self.manageObjectContext sectionNameKeyPath:@"author" cacheName:nil];
     
@@ -125,7 +147,8 @@ NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"autho
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    // Configure the cell...
+    
+    // Configure the cell... (should be Course objects here)
     
     // and ask the fetch results controller whats at particular index path right now
     Course *course = [self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -138,6 +161,7 @@ NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"autho
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
+    // we want to jump into the fetch results controller, into the right section, into the right object, and get its name
     return [[[self.fetchedResultsController sections]objectAtIndex:section]name];
 }
 

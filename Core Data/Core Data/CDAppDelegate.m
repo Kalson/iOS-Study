@@ -28,12 +28,10 @@
 //    self.window.rootViewController = navC;
     
     // points to UINavigation controller and letting it know its the root View Controller (done b/c of storyboard)
-    UINavigationController *navC = (UINavigationController *)self.window.rootViewController;
-//    CoursesTVC *cTVC = (CoursesTVC *)self.window.rootViewController; // what does this mean
-    
-    CoursesTVC *cTVC = (CoursesTVC *)[[navC viewControllers]objectAtIndex:0]; // what does this mean
+    UINavigationController *navC = (UINavigationController *)self.window.rootViewController; // grabs the navigation controller
+    CoursesTVC *cTVC = (CoursesTVC *)[[navC viewControllers]objectAtIndex:0]; // grab the course TVC out of the Nav Controller
 
-    // pass a reference to manage object context
+    // pass a reference to manage object context from Course TVC
     cTVC.manageObjectContext = self.managedObjectContext;
     
     return YES;
