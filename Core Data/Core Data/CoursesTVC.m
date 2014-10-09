@@ -26,7 +26,7 @@
 {
     if ([[segue identifier] isEqualToString:@"addCourse"]){
         // create a new pointer to addcourse View controller
-        AddCourseVC *acVC = [(AddCourseVC *)[segue destinationViewController]topViewController];
+        AddCourseVC *acVC = (AddCourseVC *)[[segue destinationViewController]topViewController];
         // we created AddCourseVC and sets its delegate to self (meaning me)
         // ur delegate is me, so look back to me when somebody clicks the cancel or save button
         acVC.delegate = self;
@@ -120,8 +120,73 @@
     // fetch results controller object created
     _fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest managedObjectContext:self.manageObjectContext sectionNameKeyPath:@"author" cacheName:nil];
     
+    // look to me for any of the delegate methods in the fetch results controller
+    _fetchedResultsController.delegate = self;
+    
     // then return the accessor methods (for anybody that wants to ask for the fetch results controller property)
     return _fetchedResultsController;
+}
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
+{
+    // tell the table view that we're about to begin some updates
+    [self.tableView beginUpdates];
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    // tell the table view to finish processing changes
+    [self.tableView endUpdates];
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
+{
+    // grab hold of the table view that im working with and create a temporary placeholder for tableview instead of calling self.tableview repeatedly
+    UITableView *myTableView = self.tableView;
+    
+    // what kind of change just happen (changetype)
+    
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            // the change is an insert, so we tell the tableview to insert a particular row at the new index path w/ a path
+            [myTableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            // tell the table view did update itself, but delete a particular row at the new index path w/ a path
+            [myTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:{
+            // b/c were creating a new objects here, we have to wrap it w/ curly braces
+            // if it a change we need to change the content of a particular cell
+            
+            // first were talking to the fetch results controller saying hey give me the course at ur particular index
+            Course *changedCourse = [self.fetchedResultsController objectAtIndexPath:indexPath];
+            
+            // then grabbing the current cell at the current location in the tableview
+            UITableViewCell *cell = [myTableView cellForRowAtIndexPath:indexPath];
+            
+            // and change its title
+            cell.textLabel.text = changedCourse.title;
+        }
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            // if something could move
+            // deleting the original position
+            [myTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            // and insert at the new position
+             [myTableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+    }
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
+{
+    // were really interesting if we deleting a section or adding a section
 }
 
 
