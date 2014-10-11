@@ -49,6 +49,7 @@
 
 - (IBAction)SaveButton:(id)sender {
     // dismiss and save the context
+    // setting the manage objects in the data model with the textfields
     [self.currentCourse setTitle:self.titleField.text];
     [self.currentCourse setAuthor:self.authorField.text];
     

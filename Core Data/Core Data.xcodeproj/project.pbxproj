@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		265CEC4C19BFD6840034273A /* AddCourseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 265CEC4B19BFD6840034273A /* AddCourseVC.m */; };
 		26AFCC7619BC3BDD00E50B67 /* CoursesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AFCC7519BC3BDD00E50B67 /* CoursesTVC.m */; };
+		26F6ED7C19E92EAB000DB3B5 /* DisplayEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F6ED7B19E92EAB000DB3B5 /* DisplayEditVC.m */; };
 		26FD91E119BC360800488409 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26FD91E019BC360800488409 /* Foundation.framework */; };
 		26FD91E319BC360800488409 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26FD91E219BC360800488409 /* CoreGraphics.framework */; };
 		26FD91E519BC360800488409 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26FD91E419BC360800488409 /* UIKit.framework */; };
@@ -43,6 +44,8 @@
 		265CEC4B19BFD6840034273A /* AddCourseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCourseVC.m; sourceTree = "<group>"; };
 		26AFCC7419BC3BDD00E50B67 /* CoursesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoursesTVC.h; sourceTree = "<group>"; };
 		26AFCC7519BC3BDD00E50B67 /* CoursesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoursesTVC.m; sourceTree = "<group>"; };
+		26F6ED7A19E92EAB000DB3B5 /* DisplayEditVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayEditVC.h; sourceTree = "<group>"; };
+		26F6ED7B19E92EAB000DB3B5 /* DisplayEditVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayEditVC.m; sourceTree = "<group>"; };
 		26FD91DD19BC360800488409 /* Core Data.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Core Data.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		26FD91E019BC360800488409 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		26FD91E219BC360800488409 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -137,6 +140,8 @@
 				265CEC4B19BFD6840034273A /* AddCourseVC.m */,
 				26AFCC7419BC3BDD00E50B67 /* CoursesTVC.h */,
 				26AFCC7519BC3BDD00E50B67 /* CoursesTVC.m */,
+				26F6ED7A19E92EAB000DB3B5 /* DisplayEditVC.h */,
+				26F6ED7B19E92EAB000DB3B5 /* DisplayEditVC.m */,
 				26FD91F419BC360800488409 /* Core_Data.xcdatamodeld */,
 			);
 			path = "Core Data";
@@ -275,6 +280,7 @@
 				26FD91EF19BC360800488409 /* main.m in Sources */,
 				26FD91F319BC360800488409 /* CDAppDelegate.m in Sources */,
 				26FD91F619BC360800488409 /* Core_Data.xcdatamodeld in Sources */,
+				26F6ED7C19E92EAB000DB3B5 /* DisplayEditVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
