@@ -127,6 +127,8 @@
     return _fetchedResultsController;
 }
 
+
+#pragma mark - fetched results refresh
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
     // tell the table view that we're about to begin some updates
@@ -155,7 +157,7 @@
             
         case NSFetchedResultsChangeDelete:
             // tell the table view did update itself, but delete a particular row at the new index path w/ a path
-            [myTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [myTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case NSFetchedResultsChangeUpdate:{
@@ -176,7 +178,7 @@
         case NSFetchedResultsChangeMove:
             // if something could move
             // deleting the original position
-            [myTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [myTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             // and insert at the new position
              [myTableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
@@ -186,7 +188,18 @@
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
 {
-    // were really interesting if we deleting a section or adding a section
+    // we want to know if we create a new course object (add a new section) or if we delete the last course object in a section (we need to delete a section)
+    
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        default:[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+    }
+    
 }
 
 
@@ -239,18 +252,29 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+        
+        // grab the manage object context
+        NSManagedObjectContext *context = self.manageObjectContext;
+        
+        // ask the fetch results controller for whatever the object that being passed in
+        Course *courseWereDeleted = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [context deleteObject:courseWereDeleted];
+        
+        // to save the changes, to persist them
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"Error! %@",error);
+        }
+    }
+    
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
