@@ -8,6 +8,7 @@
 
 #import "CoursesTVC.h"
 #import "Course.h"
+#import "DisplayEditVC.h"
 
 // when the app loads and the TVC appears, we want it to fetch all the course entities out of the core data store
 
@@ -37,6 +38,22 @@
         // and with that new course object created, we can reach into the modal window were about to segue to and say hey here ur current course, its this object. if u want to change it, change it (save it). If u don't u can cancel back out of it and get rid of it.
         acVC.currentCourse = newCourse;
     
+    }
+    
+    if ([segue.identifier isEqualToString:@"showDetail"]) {
+        // grab a reference to the segue im referencing to
+        DisplayEditVC *DVC = (DisplayEditVC *)[segue destinationViewController];
+        
+        // grab the index path
+        NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
+        // gives the row someone just tap on
+        
+        // use (Course *) to go with the fetch results controller
+        Course *selectedCourse = (Course *)[self.fetchedResultsController objectAtIndexPath:myIndexPath];
+        // to find the course object at that indexpath
+        
+        // set the current course property in the view controller were about to segue to
+        DVC.currentCourse = selectedCourse;
     }
     
 }
@@ -114,7 +131,7 @@
     [fetchRequest setEntity:entity];
     
     // Specify how the fetched objects should be sorted
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"author"ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]initWithKey:@"author"ascending:YES];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
     
     // fetch results controller object created

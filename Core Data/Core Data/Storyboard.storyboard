@@ -69,6 +69,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUN-jt-wzm">
+                                <rect key="frame" x="92" y="76" width="30" height="30"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startEditing:" destination="oFI-qX-lEf" eventType="touchUpInside" id="5J6-vH-Cdz"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uai-gn-L89">
+                                <rect key="frame" x="177" y="76" width="37" height="30"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneEditing:" destination="oFI-qX-lEf" eventType="touchUpInside" id="86a-TR-asO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -76,6 +94,8 @@
                     <connections>
                         <outlet property="authorField" destination="PVl-CK-dG9" id="lM5-IH-Dx5"/>
                         <outlet property="dateField" destination="6NB-ou-5t4" id="S2d-gD-5Sy"/>
+                        <outlet property="doneButton" destination="uai-gn-L89" id="vc0-rY-tVL"/>
+                        <outlet property="editButton" destination="eUN-jt-wzm" id="Diz-wO-UPG"/>
                         <outlet property="titleField" destination="zi8-kr-WLg" id="9bI-9w-QOg"/>
                     </connections>
                 </viewController>
