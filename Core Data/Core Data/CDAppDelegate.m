@@ -31,7 +31,7 @@
     UINavigationController *navC = (UINavigationController *)self.window.rootViewController; // grabs the navigation controller
     CoursesTVC *cTVC = (CoursesTVC *)[[navC viewControllers]objectAtIndex:0]; // grab the course TVC out of the Nav Controller
 
-    // pass a reference to manage object context from Course TVC
+    // passing a reference back to the manage object context from Course TVC
     cTVC.manageObjectContext = self.managedObjectContext;
     
     return YES;

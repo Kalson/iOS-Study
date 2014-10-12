@@ -7,6 +7,7 @@
 //
 
 #import "DisplayEditVC.h"
+#import "CDAppDelegate.h"
 
 @interface DisplayEditVC ()
 
@@ -76,6 +77,12 @@
     NSDateFormatter *df = [[NSDateFormatter alloc]init];
     [df setDateFormat:@"yyyy-MM-dd"];
     _currentCourse.releaseDate = [df dateFromString:self.dateField.text];
+    
+    // create or pass a reference to the AppDelegate class
+    // grab hold of appD by casting to the AppDelegate from a call to UIApplication
+    // u just dont want the aplication object, but u want the application delegate
+    CDAppDelegate *appD = (CDAppDelegate *)[[UIApplication sharedApplication]delegate];
+    [appD saveContext];
 
 }
 
