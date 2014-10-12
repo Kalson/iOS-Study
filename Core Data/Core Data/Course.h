@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-
+// inheriting from NSManagedObject
 @interface Course : NSManagedObject
 
 @property (nonatomic, retain) NSString * title;

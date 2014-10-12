@@ -15,4 +15,15 @@
 @dynamic author;
 @dynamic releaseDate;
 
+// if u want add behaviors to deal with intialization
+
+// this method is called when a manage object is instatiated
+- (void)awakeFromInsert {
+    [super awakeFromInsert];
+    
+    // sets the current date when a new course is created
+    self.releaseDate = [NSDate date];
+}
+
+
 @end
