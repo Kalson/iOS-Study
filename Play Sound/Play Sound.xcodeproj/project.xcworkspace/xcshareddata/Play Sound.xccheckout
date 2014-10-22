@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>07464A6C-9745-4D03-8867-10FBA5A0D743</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Play Sound</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EDE940B8DADB2281BC17EF6A4F666D10A8D22808</key>
+		<string>https://github.com/Kalson/iOS-Study.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Play Sound/Play Sound.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EDE940B8DADB2281BC17EF6A4F666D10A8D22808</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Kalson/iOS-Study.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EDE940B8DADB2281BC17EF6A4F666D10A8D22808</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EDE940B8DADB2281BC17EF6A4F666D10A8D22808</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS-Study</string>
+		</dict>
+	</array>
+</dict>
+</plist>
