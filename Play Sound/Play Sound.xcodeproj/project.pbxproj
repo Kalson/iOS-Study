@@ -14,6 +14,7 @@
 		2653053419F7701700B7BF38 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2653053319F7701700B7BF38 /* Images.xcassets */; };
 		2653053719F7701700B7BF38 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2653053519F7701700B7BF38 /* LaunchScreen.xib */; };
 		2653054319F7701800B7BF38 /* Play_SoundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2653054219F7701800B7BF38 /* Play_SoundTests.m */; };
+		2653054D19F7768F00B7BF38 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2653054C19F7768F00B7BF38 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		2653053C19F7701800B7BF38 /* Play SoundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Play SoundTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2653054119F7701800B7BF38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2653054219F7701800B7BF38 /* Play_SoundTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Play_SoundTests.m; sourceTree = "<group>"; };
+		2653054C19F7768F00B7BF38 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2653054D19F7768F00B7BF38 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +66,7 @@
 		2653051A19F7701700B7BF38 = {
 			isa = PBXGroup;
 			children = (
+				2653054C19F7768F00B7BF38 /* AudioToolbox.framework */,
 				2653052519F7701700B7BF38 /* Play Sound */,
 				2653053F19F7701800B7BF38 /* Play SoundTests */,
 				2653052419F7701700B7BF38 /* Products */,
