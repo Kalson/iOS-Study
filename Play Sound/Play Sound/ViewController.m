@@ -23,12 +23,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    // plays the sounds
+    // we will assign the sound to the SystemSoundID
+    SystemSoundID *playSoundID;
+    
     UIButton *soundButton = [[UIButton alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - 100)/2, 200, 100, 40)];
     soundButton.layer.cornerRadius = 5;
     soundButton.layer.borderWidth = 1;
     soundButton.layer.borderColor = [[UIColor blueColor]CGColor];
     [soundButton setTitle:@"Play Sound" forState:UIControlStateNormal];
-    [soundButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [soundButton setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
     [soundButton addTarget:self action:@selector(playSound) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:soundButton];
 }

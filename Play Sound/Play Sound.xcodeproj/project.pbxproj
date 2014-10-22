@@ -15,6 +15,7 @@
 		2653053719F7701700B7BF38 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2653053519F7701700B7BF38 /* LaunchScreen.xib */; };
 		2653054319F7701800B7BF38 /* Play_SoundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2653054219F7701800B7BF38 /* Play_SoundTests.m */; };
 		2653054D19F7768F00B7BF38 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2653054C19F7768F00B7BF38 /* AudioToolbox.framework */; };
+		2653054F19F7785500B7BF38 /* Nuclear Alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2653054E19F7785500B7BF38 /* Nuclear Alarm.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		2653054119F7701800B7BF38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2653054219F7701800B7BF38 /* Play_SoundTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Play_SoundTests.m; sourceTree = "<group>"; };
 		2653054C19F7768F00B7BF38 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		2653054E19F7785500B7BF38 /* Nuclear Alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Nuclear Alarm.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		2653051A19F7701700B7BF38 = {
 			isa = PBXGroup;
 			children = (
+				2653054E19F7785500B7BF38 /* Nuclear Alarm.mp3 */,
 				2653054C19F7768F00B7BF38 /* AudioToolbox.framework */,
 				2653052519F7701700B7BF38 /* Play Sound */,
 				2653053F19F7701800B7BF38 /* Play SoundTests */,
@@ -205,6 +208,7 @@
 			files = (
 				2653053219F7701700B7BF38 /* Main.storyboard in Resources */,
 				2653053719F7701700B7BF38 /* LaunchScreen.xib in Resources */,
+				2653054F19F7785500B7BF38 /* Nuclear Alarm.mp3 in Resources */,
 				2653053419F7701700B7BF38 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
