@@ -14,7 +14,7 @@
 		<string>https://github.com/Kalson/iOS-Study.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Login Page/Login Page.xcodeproj/project.xcworkspace</string>
+	<string>Login Page/Login Page.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>EDE940B8DADB2281BC17EF6A4F666D10A8D22808</key>
