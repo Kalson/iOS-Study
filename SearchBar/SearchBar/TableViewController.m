@@ -14,23 +14,31 @@
 @property (nonatomic, strong) NSMutableArray *searchResults; // Filtered search results
 @property (nonatomic, strong) NSMutableArray *objects;
 
-//@property (nonatomic, strong) NSArray *products;
-
 @end
 
 @implementation TableViewController
 
+- (NSMutableArray *)objects
+{
+    if (!_objects) {
+        _objects = [[NSMutableArray alloc] init];
+    }
+    
+    return _objects;
+}
+
+- (NSMutableArray *)results
+{
+    if (!_searchResults) {
+        _searchResults = [[NSMutableArray alloc] init];
+    }
+    
+    return _searchResults;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    // Create a mutable array to contain products for the search results table.
-//    self.searchResults = [NSMutableArray arrayWithCapacity:[self.products count]];
-//
-//    UITableViewController *searchResultsController = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
-//    searchResultsController.tableView.dataSource = self;
-//    searchResultsController.tableView.delegate = self;
     
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.searchController.searchBar.frame = CGRectMake(0, 0, 0, 44.0);
@@ -42,16 +50,18 @@
     
     self.searchController.searchBar.barTintColor = [UIColor yellowColor];
     
+//    self.objects = [@[@"iOS",@"is",@"kool"]mutableCopy];
+    [self.objects addObject:@"iOS"];
+    [self.objects addObject:@"is"];
+    [self.objects addObject:@"kool"];
     
-//    self.searchController.searchResultsUpdater = self;
-
-    
-    
-    self.objects = [@[@"iOS",@"is",@"kool"]mutableCopy];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     
+
+    
 }
+
 
 - (void)searchThroughResults
 {
@@ -86,7 +96,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
+//    [self.tableView reloadData];
+
     // Configure the cell...
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
@@ -97,7 +108,11 @@
         cell.textLabel.text = self.objects[indexPath.row];
     } else {
         cell.textLabel.text = self.searchResults[indexPath.row];
+//        [self.tableView reloadData];
+
     }
+    
+
     
     return cell;
 }
