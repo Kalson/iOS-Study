@@ -14,6 +14,7 @@
 		26CACEC11A10683D00273E44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26CACEC01A10683D00273E44 /* Images.xcassets */; };
 		26CACEC41A10683D00273E44 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26CACEC21A10683D00273E44 /* LaunchScreen.xib */; };
 		26CACED01A10683D00273E44 /* iAdTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CACECF1A10683D00273E44 /* iAdTests.m */; };
+		26CACEDA1A10699900273E44 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CACED91A10699900273E44 /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		26CACEC91A10683D00273E44 /* iAdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iAdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26CACECE1A10683D00273E44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26CACECF1A10683D00273E44 /* iAdTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iAdTests.m; sourceTree = "<group>"; };
+		26CACED91A10699900273E44 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26CACEDA1A10699900273E44 /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +66,7 @@
 		26CACEA71A10683D00273E44 = {
 			isa = PBXGroup;
 			children = (
+				26CACED91A10699900273E44 /* iAd.framework */,
 				26CACEB21A10683D00273E44 /* iAd */,
 				26CACECC1A10683D00273E44 /* iAdTests */,
 				26CACEB11A10683D00273E44 /* Products */,
@@ -343,7 +347,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = iAd/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -353,7 +359,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = iAd/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
