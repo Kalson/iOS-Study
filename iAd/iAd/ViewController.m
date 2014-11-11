@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SettingsVC.h"
 #import <iAd/iAd.h>
 
 @interface ViewController () <ADBannerViewDelegate>
@@ -23,6 +24,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    UIButton *settings = [[UIButton alloc]initWithFrame:CGRectMake(20, 200, [UIScreen mainScreen].bounds.size.width - 40, 40)];
+    settings.backgroundColor = [UIColor redColor];
+    [settings setTitle:@"Settings" forState:UIControlStateNormal];
+    [settings addTarget:self action:@selector(settingsButton) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:settings];
+    
+    UILabel *adsRemoveLavel = [[UILabel alloc]initWithFrame:CGRectMake(20, 250, [UIScreen mainScreen].bounds.size.width - 40, 40)];
+    adsRemoveLavel.textAlignment = NSTextAlignmentCenter;
+    adsRemoveLavel.text = @"Ads have not been removed";
+    [self.view addSubview:adsRemoveLavel];
+    
+    
+    
+}
+
+- (void)settingsButton
+{
+    SettingsVC *SettingsViewC = [[SettingsVC alloc]init];
+    [self presentViewController:SettingsViewC animated:YES completion:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated

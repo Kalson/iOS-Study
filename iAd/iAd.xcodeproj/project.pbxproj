@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2612B03F1A11AFEA00BC944A /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612B03E1A11AFEA00BC944A /* SettingsVC.m */; };
 		26CACEB61A10683D00273E44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CACEB51A10683D00273E44 /* main.m */; };
 		26CACEB91A10683D00273E44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CACEB81A10683D00273E44 /* AppDelegate.m */; };
 		26CACEBC1A10683D00273E44 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CACEBB1A10683D00273E44 /* ViewController.m */; };
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2612B03D1A11AFEA00BC944A /* SettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsVC.h; sourceTree = "<group>"; };
+		2612B03E1A11AFEA00BC944A /* SettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsVC.m; sourceTree = "<group>"; };
 		26CACEB01A10683D00273E44 /* iAd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26CACEB41A10683D00273E44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26CACEB51A10683D00273E44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -89,6 +92,8 @@
 				26CACEB81A10683D00273E44 /* AppDelegate.m */,
 				26CACEBA1A10683D00273E44 /* ViewController.h */,
 				26CACEBB1A10683D00273E44 /* ViewController.m */,
+				2612B03D1A11AFEA00BC944A /* SettingsVC.h */,
+				2612B03E1A11AFEA00BC944A /* SettingsVC.m */,
 				26CACEBD1A10683D00273E44 /* Main.storyboard */,
 				26CACEC01A10683D00273E44 /* Images.xcassets */,
 				26CACEC21A10683D00273E44 /* LaunchScreen.xib */,
@@ -224,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26CACEBC1A10683D00273E44 /* ViewController.m in Sources */,
+				2612B03F1A11AFEA00BC944A /* SettingsVC.m in Sources */,
 				26CACEB91A10683D00273E44 /* AppDelegate.m in Sources */,
 				26CACEB61A10683D00273E44 /* main.m in Sources */,
 			);
@@ -420,6 +426,7 @@
 				26CACED51A10683D00273E44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		26CACED61A10683D00273E44 /* Build configuration list for PBXNativeTarget "iAdTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +435,7 @@
 				26CACED81A10683D00273E44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
