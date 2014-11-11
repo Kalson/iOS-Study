@@ -17,6 +17,9 @@
 @end 
 
 @implementation SettingsVC
+{
+    UIButton *removeAdsButton;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,7 +33,7 @@
     [goBackButton addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:goBackButton];
     
-    UIButton *removeAdsButton = [[UIButton alloc]initWithFrame:CGRectMake(20, 300, [UIScreen mainScreen].bounds.size.width - 40, 40)];
+    removeAdsButton = [[UIButton alloc]initWithFrame:CGRectMake(20, 300, [UIScreen mainScreen].bounds.size.width - 40, 40)];
     removeAdsButton.backgroundColor = [UIColor greenColor];
     [removeAdsButton setTitle:@"No Ads" forState:UIControlStateNormal];
     [removeAdsButton addTarget:self action:@selector(removeAds) forControlEvents:UIControlEventTouchUpInside];
@@ -95,6 +98,33 @@
     }
 }
 
-//- paymentqueu
+
+- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions
+{
+
+    // if the purchase or transaction is successful
+    for (SKPaymentTransaction *transaction in transactions) {
+        switch (transaction.transactionState) {
+            case SKPaymentTransactionStatePurchased:[self unlockPurchase];
+                [[SKPaymentQueue defaultQueue]finishTransaction:transaction];
+                break;
+                
+            // or if transcations fails
+            case SKPaymentTransactionStateFailed:NSLog(@"Transaction failed");
+                [[SKPaymentQueue defaultQueue]finishTransaction:transaction];
+                break;
+                
+            default:
+                break;
+        }
+    }
+}
+
+- (void)unlockPurchase
+{
+//    removeAdsButton.enabled = NO;
+    [removeAdsButton setTitle:@"Ads Removed" forState:UIControlStateDisabled];
+    [self.ViewC purchased];
+}
 
 @end
