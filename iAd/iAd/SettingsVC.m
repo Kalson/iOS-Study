@@ -73,6 +73,8 @@
     // process payment
     SKPayment *payment = [SKPayment paymentWithProduct:self.product];
     [[SKPaymentQueue defaultQueue]addPayment:payment];
+    
+    
 }
 
 - (void)restorePurchase
@@ -81,6 +83,13 @@
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
 }
+
+// when the restore is completed
+- (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
+{
+    [self unlockPurchase];
+}
+
 
 #pragma mark SkPayment Delegates methods
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response
@@ -122,7 +131,7 @@
 
 - (void)unlockPurchase
 {
-//    removeAdsButton.enabled = NO;
+    removeAdsButton.enabled = NO;
     [removeAdsButton setTitle:@"Ads Removed" forState:UIControlStateDisabled];
     [self.ViewC purchased];
 }
