@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <StoreKit/StoreKit.h>
 
-@interface SettingsVC : UIViewController
+@interface SettingsVC : UIViewController <SKPaymentTransactionObserver,SKProductsRequestDelegate>
+
+@property (strong, nonatomic) SKProduct *product;
+@property (strong, nonatomic) NSString *productID;
+
+- (void)getProductID:(UIViewController *)viewController;
 
 @end

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2612B03F1A11AFEA00BC944A /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612B03E1A11AFEA00BC944A /* SettingsVC.m */; };
+		2612B0411A11B30200BC944A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2612B0401A11B30200BC944A /* StoreKit.framework */; };
 		26CACEB61A10683D00273E44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CACEB51A10683D00273E44 /* main.m */; };
 		26CACEB91A10683D00273E44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CACEB81A10683D00273E44 /* AppDelegate.m */; };
 		26CACEBC1A10683D00273E44 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CACEBB1A10683D00273E44 /* ViewController.m */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		2612B03D1A11AFEA00BC944A /* SettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsVC.h; sourceTree = "<group>"; };
 		2612B03E1A11AFEA00BC944A /* SettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsVC.m; sourceTree = "<group>"; };
+		2612B0401A11B30200BC944A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		26CACEB01A10683D00273E44 /* iAd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26CACEB41A10683D00273E44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26CACEB51A10683D00273E44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2612B0411A11B30200BC944A /* StoreKit.framework in Frameworks */,
 				26CACEDA1A10699900273E44 /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,6 +72,7 @@
 		26CACEA71A10683D00273E44 = {
 			isa = PBXGroup;
 			children = (
+				2612B0401A11B30200BC944A /* StoreKit.framework */,
 				26CACED91A10699900273E44 /* iAd.framework */,
 				26CACEB21A10683D00273E44 /* iAd */,
 				26CACECC1A10683D00273E44 /* iAdTests */,

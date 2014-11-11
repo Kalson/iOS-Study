@@ -18,31 +18,41 @@
 {
     ADBannerView *bannerView;
     BOOL bannerIsVisible;
+    
+    UILabel *adsRemoveLabel;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    UIButton *settings = [[UIButton alloc]initWithFrame:CGRectMake(20, 200, [UIScreen mainScreen].bounds.size.width - 40, 40)];
-    settings.backgroundColor = [UIColor redColor];
-    [settings setTitle:@"Settings" forState:UIControlStateNormal];
-    [settings addTarget:self action:@selector(settingsButton) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:settings];
+    UIButton *settingsButton = [[UIButton alloc]initWithFrame:CGRectMake(20, 200, [UIScreen mainScreen].bounds.size.width - 40, 40)];
+    settingsButton.backgroundColor = [UIColor redColor];
+    [settingsButton setTitle:@"Settings" forState:UIControlStateNormal];
+    [settingsButton addTarget:self action:@selector(settings) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:settingsButton];
     
-    UILabel *adsRemoveLavel = [[UILabel alloc]initWithFrame:CGRectMake(20, 250, [UIScreen mainScreen].bounds.size.width - 40, 40)];
-    adsRemoveLavel.textAlignment = NSTextAlignmentCenter;
-    adsRemoveLavel.text = @"Ads have not been removed";
-    [self.view addSubview:adsRemoveLavel];
+    adsRemoveLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 250, [UIScreen mainScreen].bounds.size.width - 40, 40)];
+    adsRemoveLabel.textAlignment = NSTextAlignmentCenter;
+    adsRemoveLabel.text = @"Ads have not been removed";
+    [self.view addSubview:adsRemoveLabel];
     
     
     
 }
 
-- (void)settingsButton
+- (void)settings
 {
     SettingsVC *SettingsViewC = [[SettingsVC alloc]init];
+    // telling the product id to load iAP purchase item
+    SettingsViewC.productID = @"KaL.iAd.IAP";
+    [SettingsViewC getProductID:self];
     [self presentViewController:SettingsViewC animated:YES completion:nil];
+}
+
+- (void)purchased
+{
+    adsRemoveLabel.text = @"Ads have been removed";
 }
 
 - (void)viewWillAppear:(BOOL)animated
