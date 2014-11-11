@@ -49,6 +49,7 @@
     
     _ViewC = viewController;
     
+    // create a request if payments can be made
     if ([SKPaymentQueue canMakePayments]) {
         SKProductsRequest *request = [[SKProductsRequest alloc]initWithProductIdentifiers:[NSSet setWithObject:self.productID]];
         request.delegate = self;
@@ -66,7 +67,9 @@
 
 - (void)removeAds
 {
-    
+    // process payment
+    SKPayment *payment = [SKPayment paymentWithProduct:self.product];
+    [[SKPaymentQueue defaultQueue]addPayment:payment];
 }
 
 - (void)restorePurchase
@@ -77,7 +80,17 @@
 #pragma mark SkPayment Delegates methods
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response
 {
+    NSArray *products = response.products;
+    // when the App Store responds to the product request, check to see if there any products
+    if (products.count !=0) {
+        self.product = products[0];
+
+    }
     
+    
+    for (SKProduct *product in products) {
+        NSLog(@"Product could not be found: %@",product);
+    }
 }
 
 //- paymentqueu
