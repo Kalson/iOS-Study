@@ -74,7 +74,9 @@
 
 - (void)restorePurchase
 {
-    
+    // restore previously completed transactions for IAP
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
 }
 
 #pragma mark SkPayment Delegates methods

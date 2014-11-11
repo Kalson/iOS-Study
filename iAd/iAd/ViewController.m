@@ -44,6 +44,7 @@
 - (void)settings
 {
     SettingsVC *SettingsViewC = [[SettingsVC alloc]init];
+    
     // telling the product id to load iAP purchase item
     SettingsViewC.productID = @"KaL.iAd.IAP";
     [SettingsViewC getProductID:self];
