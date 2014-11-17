@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2612B03F1A11AFEA00BC944A /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612B03E1A11AFEA00BC944A /* SettingsVC.m */; };
 		2612B0411A11B30200BC944A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2612B0401A11B30200BC944A /* StoreKit.framework */; };
+		26C82BE41A12E92400A66FA1 /* StoreKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C82BE31A12E92400A66FA1 /* StoreKitHelper.m */; };
+		26C82BE71A12ECB000A66FA1 /* product_ids.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26C82BE61A12ECB000A66FA1 /* product_ids.plist */; };
 		26CACEB61A10683D00273E44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CACEB51A10683D00273E44 /* main.m */; };
 		26CACEB91A10683D00273E44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CACEB81A10683D00273E44 /* AppDelegate.m */; };
 		26CACEBC1A10683D00273E44 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CACEBB1A10683D00273E44 /* ViewController.m */; };
@@ -33,6 +35,9 @@
 		2612B03D1A11AFEA00BC944A /* SettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsVC.h; sourceTree = "<group>"; };
 		2612B03E1A11AFEA00BC944A /* SettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsVC.m; sourceTree = "<group>"; };
 		2612B0401A11B30200BC944A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		26C82BE21A12E92400A66FA1 /* StoreKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreKitHelper.h; sourceTree = "<group>"; };
+		26C82BE31A12E92400A66FA1 /* StoreKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreKitHelper.m; sourceTree = "<group>"; };
+		26C82BE61A12ECB000A66FA1 /* product_ids.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = product_ids.plist; sourceTree = "<group>"; };
 		26CACEB01A10683D00273E44 /* iAd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26CACEB41A10683D00273E44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26CACEB51A10683D00273E44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -69,6 +74,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26C82BE51A12E94300A66FA1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				26C82BE21A12E92400A66FA1 /* StoreKitHelper.h */,
+				26C82BE31A12E92400A66FA1 /* StoreKitHelper.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		26CACEA71A10683D00273E44 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +112,7 @@
 				26CACEBB1A10683D00273E44 /* ViewController.m */,
 				2612B03D1A11AFEA00BC944A /* SettingsVC.h */,
 				2612B03E1A11AFEA00BC944A /* SettingsVC.m */,
+				26C82BE51A12E94300A66FA1 /* Helpers */,
 				26CACEBD1A10683D00273E44 /* Main.storyboard */,
 				26CACEC01A10683D00273E44 /* Images.xcassets */,
 				26CACEC21A10683D00273E44 /* LaunchScreen.xib */,
@@ -110,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				26CACEB41A10683D00273E44 /* Info.plist */,
+				26C82BE61A12ECB000A66FA1 /* product_ids.plist */,
 				26CACEB51A10683D00273E44 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -215,6 +231,7 @@
 				26CACEBF1A10683D00273E44 /* Main.storyboard in Resources */,
 				26CACEC41A10683D00273E44 /* LaunchScreen.xib in Resources */,
 				26CACEC11A10683D00273E44 /* Images.xcassets in Resources */,
+				26C82BE71A12ECB000A66FA1 /* product_ids.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +253,7 @@
 				2612B03F1A11AFEA00BC944A /* SettingsVC.m in Sources */,
 				26CACEB91A10683D00273E44 /* AppDelegate.m in Sources */,
 				26CACEB61A10683D00273E44 /* main.m in Sources */,
+				26C82BE41A12E92400A66FA1 /* StoreKitHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

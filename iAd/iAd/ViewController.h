@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
+
 
 @interface ViewController : UIViewController
 
-- (void)purchased;
+@property (nonatomic) BOOL bannerIsVisible;
+@property (nonatomic) ADBannerView *bannerView;
+
+@property (nonatomic) NSString *removeAdsString;
 
 @end
 

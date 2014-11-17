@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <StoreKit/StoreKit.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +18,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // create a transaction observer and set it as the observer
+    self.observer = [[StoreKitHelper alloc]init];
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:self.observer];
+
+    
     return YES;
 }
 

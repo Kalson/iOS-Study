@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "SettingsVC.h"
-#import <iAd/iAd.h>
+#import "StoreKitHelper.h"
 
 @interface ViewController () <ADBannerViewDelegate>
 
@@ -16,10 +16,12 @@
 
 @implementation ViewController
 {
-    ADBannerView *bannerView;
-    BOOL bannerIsVisible;
-    
     UILabel *adsRemoveLabel;
+    
+    SettingsVC *settingsViewC;
+    StoreKitHelper *skHelper;
+    
+//    NSString
 }
 
 - (void)viewDidLoad {
@@ -37,34 +39,46 @@
     adsRemoveLabel.text = @"Ads have not been removed";
     [self.view addSubview:adsRemoveLabel];
     
+    settingsViewC = [[SettingsVC alloc] init];
+    skHelper = [[StoreKitHelper alloc]init];
     
+    [settingsViewC.removeAdsButton setTitle:@"Ads Removed" forState:UIControlStateDisabled];
     
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    // check flag to see if we should show Ads
+   self.removeAdsString = [skHelper.persistentData objectForKey:@"removeads"];
+    
+    NSLog(@"%@",self.removeAdsString);
+    
+    // if not purchased
+    if (![self.removeAdsString isEqualToString:@"bought"]) {
+        self.bannerView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 50, 320, 50)];
+        self.bannerView.delegate = self;
+        self.bannerView.alpha = 0;
+        self.bannerIsVisible = YES;
+        [self.view addSubview:self.bannerView];
+    } else {
+        self.bannerView.hidden = YES;
+        adsRemoveLabel.text = @"Ads have been removed";
+    }
 }
 
 - (void)settings
 {
-    SettingsVC *SettingsViewC = [[SettingsVC alloc]init];
-    
-    // telling the product id to load iAP purchase item
-    SettingsViewC.productID = @"KaL.iAd.IAP";
-    [SettingsViewC getProductID:self];
-    [self presentViewController:SettingsViewC animated:YES completion:nil];
+    [self presentViewController:settingsViewC animated:YES completion:nil];
 }
 
-- (void)purchased
-{
-    adsRemoveLabel.text = @"Ads have been removed";
-}
+//- (void)unlockPurchase
+//{
+//    settingsViewC.removeAdsButton.enabled = NO;
+//    settingsViewC.removeAdsButtonText = @"Ads Removed";
+//}
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    bannerView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 50, 320, 50)];
-    bannerView.delegate = self;
-    bannerView.alpha = 0;
-    
-}
-
-#pragma iAd Delegate Methods
+#pragma mark - iAd Delegate Methods
 
 // when there is connection
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
@@ -72,23 +86,21 @@
     
     NSLog(@"ad shown");
     
-    if (!bannerIsVisible) {
-        
+//    if (!self.bannerIsVisible) {
+    
 //        // If banner isn't part of view hierarchy, add it
 //        if (bannerView.superview == nil)
 //        {
 //            [self.view addSubview:bannerView];
 //        }
         
-        [self.view addSubview:bannerView];
-        
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:1];
         banner.alpha = 1; // if there is a connection or the banner is not visible, we want to bring the AD back into the view
         [UIView commitAnimations];
 
-        bannerIsVisible = YES;
-    }
+        self.bannerIsVisible = YES;
+//    }
     
 }
 
@@ -96,16 +108,15 @@
 {
     NSLog(@"Failed to retrieve ad");
 
-    if (bannerIsVisible) {
+    if (self.bannerIsVisible) {
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:1];
         banner.alpha = 0; // if there is no a connection, fade out the banner
         [UIView commitAnimations];
         
-        bannerIsVisible = NO;
+        self.bannerIsVisible = NO;
     }
-    
-    
 }
+
 
 @end

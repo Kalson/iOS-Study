@@ -8,22 +8,29 @@
 
 #import "SettingsVC.h"
 #import "ViewController.h"
+#import "StoreKitHelper.h"
 
 
-@interface SettingsVC ()
-
-@property (strong,nonatomic) ViewController *ViewC;
+@interface SettingsVC () <StoreKitHelperProtocol>
 
 @end 
 
 @implementation SettingsVC
 {
-    UIButton *removeAdsButton;
+    StoreKitHelper *skHelper;
+    ViewController *ViewC;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    ViewC = [[ViewController alloc] init];
+    skHelper = [[StoreKitHelper alloc]init];
+    
+    skHelper.delegate = self;
+    [skHelper retriveProductIDs];
+    
     
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -33,35 +40,34 @@
     [goBackButton addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:goBackButton];
     
-    removeAdsButton = [[UIButton alloc]initWithFrame:CGRectMake(20, 300, [UIScreen mainScreen].bounds.size.width - 40, 40)];
-    removeAdsButton.backgroundColor = [UIColor greenColor];
-    [removeAdsButton setTitle:@"No Ads" forState:UIControlStateNormal];
-    [removeAdsButton addTarget:self action:@selector(removeAds) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:removeAdsButton];
+    self.removeAdsButton = [[UIButton alloc]initWithFrame:CGRectMake(20, 300, [UIScreen mainScreen].bounds.size.width - 40, 40)];
+    self.removeAdsButton.backgroundColor = [UIColor greenColor];
+    [self.removeAdsButton addTarget:self action:@selector(removeAds) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.removeAdsButton];
     
-    UIButton *restorePurchaseButton = [[UIButton alloc]initWithFrame:CGRectMake(20, 350, [UIScreen mainScreen].bounds.size.width - 40, 40)];
-    restorePurchaseButton.backgroundColor = [UIColor blueColor];
-    [restorePurchaseButton setTitle:@"Restore Purchase" forState:UIControlStateNormal];
-    [restorePurchaseButton addTarget:self action:@selector(restorePurchase) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:restorePurchaseButton];
-    
-    
-}
-
-- (void)getProductID:(ViewController *)viewController{
-    
-    _ViewC = viewController;
-    
-    // create a request if payments can be made
-    if ([SKPaymentQueue canMakePayments]) {
-        SKProductsRequest *request = [[SKProductsRequest alloc]initWithProductIdentifiers:[NSSet setWithObject:self.productID]];
-        request.delegate = self;
+    self.restorePurchaseButton = [[UIButton alloc]initWithFrame:CGRectMake(20, 350, [UIScreen mainScreen].bounds.size.width - 40, 40)];
+    self.restorePurchaseButton .backgroundColor = [UIColor blueColor];
+    [self.restorePurchaseButton  setTitle:@"Restore Purchase" forState:UIControlStateNormal];
+    [self.restorePurchaseButton  addTarget:self action:@selector(restorePurchase) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.restorePurchaseButton ];
         
-        [request start];
-    }
-    
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    ViewC.removeAdsString = [skHelper.persistentData objectForKey:@"removeads"];
+
+    NSLog(@"%@",ViewC.removeAdsString);
+
+    // if not purchase
+    if (![ViewC.removeAdsString isEqualToString:@"bought"]) {
+        [self.removeAdsButton setTitle:@"Remove Ads" forState:UIControlStateNormal];
+    } else {
+        self.removeAdsButton.enabled = NO;
+        self.restorePurchaseButton.enabled = NO;
+        [self.removeAdsButton setTitle:@"Ads Removed" forState:UIControlStateNormal];
+    }
+}
 
 - (void)goBack
 {
@@ -70,70 +76,36 @@
 
 - (void)removeAds
 {
-    // process payment
-    SKPayment *payment = [SKPayment paymentWithProduct:self.product];
-    [[SKPaymentQueue defaultQueue]addPayment:payment];
+//    SKPayment *payment = [SKPayment paymentWithProduct:self.removeAdsProduct];
+//    [[SKPaymentQueue defaultQueue]addPayment:payment];
     
-    
+    // intiate the payment process:
+    // create a payment, assign the product, and send off the payment
+    SKMutablePayment *payment = [SKMutablePayment paymentWithProduct:self.removeAdsProduct];
+    payment.quantity = 1;
+    [[SKPaymentQueue defaultQueue] addPayment:payment];
 }
 
 - (void)restorePurchase
 {
     // restore previously completed transactions for IAP
-    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
 }
 
 // when the restore is completed
 - (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
 {
-    [self unlockPurchase];
+//    [ViewC unlockPurchase];
 }
 
-
-#pragma mark SkPayment Delegates methods
-- (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response
+#pragma mark StoreKit Helper Protocol Methods
+- (void)productsRetrieved:(NSArray *)products
 {
-    NSArray *products = response.products;
-    // when the App Store responds to the product request, check to see if there any products
-    if (products.count !=0) {
-        self.product = products[0];
-
-    }
-    
-    
-    for (SKProduct *product in products) {
-        NSLog(@"Product could not be found: %@",product);
+    if (products.count > 0) {
+        self.removeAdsProduct = products[0];
+        
     }
 }
 
-
-- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions
-{
-
-    // if the purchase or transaction is successful
-    for (SKPaymentTransaction *transaction in transactions) {
-        switch (transaction.transactionState) {
-            case SKPaymentTransactionStatePurchased:[self unlockPurchase];
-                [[SKPaymentQueue defaultQueue]finishTransaction:transaction];
-                break;
-                
-            // or if transcations fails
-            case SKPaymentTransactionStateFailed:NSLog(@"Transaction failed");
-                [[SKPaymentQueue defaultQueue]finishTransaction:transaction];
-                break;
-                
-            default:
-                break;
-        }
-    }
-}
-
-- (void)unlockPurchase
-{
-    removeAdsButton.enabled = NO;
-    [removeAdsButton setTitle:@"Ads Removed" forState:UIControlStateDisabled];
-    [self.ViewC purchased];
-}
 
 @end
