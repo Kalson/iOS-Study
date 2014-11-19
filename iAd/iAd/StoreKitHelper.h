@@ -25,9 +25,6 @@
 
 @property (nonatomic, weak) id <StoreKitHelperProtocol> delegate;
 
-@property (nonatomic, strong) SettingsVC *settingsViewC;
-@property (nonatomic, strong) ViewController *viewC;
-
 @property (nonatomic, strong) NSUserDefaults *persistentData;
 
 - (void)retriveProductIDs;

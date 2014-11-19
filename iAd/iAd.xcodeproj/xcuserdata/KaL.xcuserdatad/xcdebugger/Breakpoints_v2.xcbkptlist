@@ -30,9 +30,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "-productsRetrieved:"
-            landmarkType = "5">
+            endingLineNumber = "118">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -47,8 +45,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "111"
             endingLineNumber = "111"
-            landmarkName = "-paymentQueueRestoreCompletedTransactionsFinished:"
-            landmarkType = "5">
+            landmarkName = "@implementation SettingsVC"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -95,7 +93,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "92"
             endingLineNumber = "92"
-            landmarkName = "-removeAds"
+            landmarkName = "-restorePurchase"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -111,7 +109,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"
             endingLineNumber = "102"
-            landmarkName = "-restorePurchase"
+            landmarkName = "-productsRetrieved:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
